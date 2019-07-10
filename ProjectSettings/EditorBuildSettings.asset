@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: ec3d658e3839fff4a9639b0948bca430
+  - enabled: 1
+    path: Assets/Scenes/PokdengGame.unity
+    guid: b9f343e3f98fbd543a3d0ef3d20b1de0
   m_configObjects: {}

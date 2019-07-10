@@ -29,27 +29,22 @@ public class PokdengUIManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        UICountOfCard();
-
+    { 
         UITextScoreHost();
         UITextScorePlayer();
     }
 
-    public void UICountOfCard()
-    {
-      //  textCountCard.text = "" + Player.current.countCard;
-    }
-
+   
 
     public void UITextScoreHost()
     {
         textScoreHost.text = "" + PokdengCalculate.current.totalScore + " แต้ม";
     }
 
+
     public void UITextScorePlayer()
     {
-        textScorePlayer.text = "" + PlayerCalculate.current.totalScore + " แต้ม";
+         //textScorePlayer.text = "" + PlayerCalculate.current.totalScore + " แต้ม";
     }
 
 
@@ -61,14 +56,14 @@ public class PokdengUIManager : MonoBehaviour
 
     public void BTPlus3()
     {
-        Player.current.c3.SetActive(true);
-        Player.current.countRandom = 4;
+        //Player.current.c3.SetActive(true);
+       // Player.current.countRandom = 4;
     }
 
     public void BTSTART()
     {
-        PokdengManager.current.countRandom = 1;
-        Player.current.countRandom = 1;
+        HostCard.current.countRandom = 1;
+       // Player.current.countRandom = 1;
     }
 
     public void BTPass()
