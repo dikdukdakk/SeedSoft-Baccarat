@@ -7,18 +7,22 @@ public class Player : MonoBehaviour
 {
     public static Player current;
 
+    [Header ("Player Info")]
     public Text username;
     public Text money;
     public Image photo;
-
     public int totalMoney;
     public int totalPoint;
 
-    public GameObject cp1, cp2, cp3; //card player
-
+    [Header("Card GameObject")]
+    public GameObject cp1;
+    public GameObject cp2, cp3;
+    public GameObject bgc1, bgc2, bgc3;
 
     void Start()
     {
         current = this;
     }
+
+    
 }

@@ -16,10 +16,7 @@ public class PokdengUIManager : MonoBehaviour
     public Text textScorePlayer;
     public Text textStatus;
 
-    [Header("BG Card")]
-    public GameObject BG1;
-    public GameObject BG2;
-    public GameObject BG3;
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,27 +53,33 @@ public class PokdengUIManager : MonoBehaviour
 
     public void BTPlus3()
     {
-        //Player.current.c3.SetActive(true);
-       // Player.current.countRandom = 4;
+        
     }
 
     public void BTSTART()
     {
-        HostCard.current.countRandom = 1;
-       // Player.current.countRandom = 1;
+        PokdengManagerBOT.current.drawCard = 1;
     }
 
     public void BTPass()
     {
-        BG1.SetActive(false);
-        BG2.SetActive(false);
-        BG3.SetActive(false);
+        foreach (Player _player in PokdengManagerBOT.current.player)
+        {
+            _player.bgc1.SetActive(false);
+            _player.bgc2.SetActive(false);
+        }
 
+        PokdengManagerBOT.current.host.bgch1.SetActive(false);
+        PokdengManagerBOT.current.host.bgch2.SetActive(false);
+
+
+        /*
         if (PlayerCalculate.current.totalScore > PokdengCalculate.current.totalScore)
             PokdengUIManager.current.textStatus.text = "คุณชนะ";
         else if (PlayerCalculate.current.totalScore < PokdengCalculate.current.totalScore)
             PokdengUIManager.current.textStatus.text = "คุณแพ้";
         else
             PokdengUIManager.current.textStatus.text = "เสมอ";
+        */
     }
 }

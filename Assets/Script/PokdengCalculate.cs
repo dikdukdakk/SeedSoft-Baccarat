@@ -20,7 +20,7 @@ public class PokdengCalculate : MonoBehaviour
     public void GetScore(int cntCard)
     {
         if (cntCard == 2)
-        {
+        {/*
             score[0] = scoreCard[HostCard.current.numCard1];
             score[1] = scoreCard[HostCard.current.numCard2];
 
@@ -32,11 +32,11 @@ public class PokdengCalculate : MonoBehaviour
 
            // if (totalScore == 8 || totalScore == 9)
                // PokdengUIManager.current.BTPass();
-
+            */
         }
 
         else if (cntCard == 3)
-        {
+        {/*
             score[0] = scoreCard[HostCard.current.numCard1];
             score[1] = scoreCard[HostCard.current.numCard2];
             score[2] = scoreCard[HostCard.current.numCard3];
@@ -47,7 +47,7 @@ public class PokdengCalculate : MonoBehaviour
             if (totalScore >= 20 && totalScore <= 30)
                 totalScore = totalScore - 20;
 
-           
+           */
         }
 
     }
