@@ -35,7 +35,7 @@ public class PokdengUIManager : MonoBehaviour
 
     public void UITextScoreHost()
     {
-        textScoreHost.text = "" + PokdengCalculate.current.totalScore + " แต้ม";
+        //textScoreHost.text = "" + PokdengCalculate.current.totalScore + " แต้ม";
     }
 
 
@@ -62,16 +62,16 @@ public class PokdengUIManager : MonoBehaviour
     }
 
     public void BTPass()
-    {
-        foreach (Player _player in PokdengManagerBOT.current.player)
+    {/*
+        foreach (GameObject _player in PokdengManagerBOT.current.player)
         {
-            _player.bgc1.SetActive(false);
-            _player.bgc2.SetActive(false);
+            _player.GetComponent<Player>().bgc1.SetActive(false);
+            _player.GetComponent<Player>().cp1[].SetActive(false);
         }
 
         PokdengManagerBOT.current.host.bgch1.SetActive(false);
         PokdengManagerBOT.current.host.bgch2.SetActive(false);
-
+     */
 
         /*
         if (PlayerCalculate.current.totalScore > PokdengCalculate.current.totalScore)

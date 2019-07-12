@@ -8,8 +8,7 @@ public class PlayerCalculate : MonoBehaviour
 
     [Header("Score of Card")]
     public int totalScore;
-    public List<int> scoreCard = new List<int>();
-    public int[] score;
+    public List<int> score = new List<int>();
 
     void Start()
     {
@@ -36,17 +35,7 @@ public class PlayerCalculate : MonoBehaviour
         
         else if(cntCard == 3)
         {
-           // score[0] = scoreCard[Player.current.numCard1];
-           // score[1] = scoreCard[Player.current.numCard2];
-          //  score[2] = scoreCard[Player.current.numCard3];
-
-            totalScore = score[0] + score[1] + score[2];
-            if (totalScore >= 10 && totalScore <= 19)
-                totalScore = totalScore - 10;
-            if (totalScore >= 20 && totalScore <= 30)
-                totalScore = totalScore - 20;
-
-           // PokdengUIManager.current.BTPass();
+           
         }
         
     }
