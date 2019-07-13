@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public bool requestCard;
 
 
+
     void Start()
     {
         current = this;
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         GetScore();
+        //GetStar();
 
         ShowUIText();
     }
@@ -41,8 +43,9 @@ public class Player : MonoBehaviour
             totalScore -= 10;
         else if(totalScore >= 20)
             totalScore -= 20;
-
     }
+
+
 
     public void ShowUIText()
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class PokdengUIManager : MonoBehaviour
 {
@@ -53,7 +54,15 @@ public class PokdengUIManager : MonoBehaviour
 
     public void BTPlus3()
     {
-        
+        PokdengManagerBOT.current.drawCard = 3;
+        PokdengManagerBOT.current.player.ElementAt(4).requestCard = true;
+        for (int i = 0; i < 9; i++)
+            PokdengManagerBOT.current.player.ElementAt(i).score.enabled = true;
+    }
+
+    public void BTPass()
+    {
+        PokdengManagerBOT.current.drawCard = 3;
     }
 
     public void BTSTART()
@@ -61,25 +70,5 @@ public class PokdengUIManager : MonoBehaviour
         PokdengManagerBOT.current.drawCard = 1;
     }
 
-    public void BTPass()
-    {/*
-        foreach (GameObject _player in PokdengManagerBOT.current.player)
-        {
-            _player.GetComponent<Player>().bgc1.SetActive(false);
-            _player.GetComponent<Player>().cp1[].SetActive(false);
-        }
-
-        PokdengManagerBOT.current.host.bgch1.SetActive(false);
-        PokdengManagerBOT.current.host.bgch2.SetActive(false);
-     */
-
-        /*
-        if (PlayerCalculate.current.totalScore > PokdengCalculate.current.totalScore)
-            PokdengUIManager.current.textStatus.text = "คุณชนะ";
-        else if (PlayerCalculate.current.totalScore < PokdengCalculate.current.totalScore)
-            PokdengUIManager.current.textStatus.text = "คุณแพ้";
-        else
-            PokdengUIManager.current.textStatus.text = "เสมอ";
-        */
-    }
+    
 }

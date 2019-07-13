@@ -27,9 +27,6 @@ public class PokdengManagerBOT : MonoBehaviour
     [Header("Player Properties")]
     public List<Player> player = new List<Player>();
 
-    int runloop = 0;
-
-
     void Start()
     {
         current = this;
@@ -52,7 +49,7 @@ public class PokdengManagerBOT : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         GameStatus(isGameStatus);
     }
@@ -62,19 +59,23 @@ public class PokdengManagerBOT : MonoBehaviour
         if (gameStatus != true)
             return;
 
-        RandomCard(runloop);
+        StartCoroutine(RandomCard());
 
     }
 
-    public void RandomCard(int r1)
+    IEnumerator RandomCard()
     {   
         if (drawCard == 1)
-        {    
+        {
             //Player Data
-            for(int i=r1; i<9; i=r1)
+            for(int i=0; i<9; i++)
             {
                 player.ElementAt(i).cardPlayer1.SetActive(true); 
                 player.ElementAt(i).cardPlayer1.GetComponent<Image>().sprite = card[firstCard[i]];
+                player.ElementAt(i).totalScore = scoreCard[firstCard[i]];
+                player.ElementAt(i).bgc1.SetActive(true);
+
+                yield return new WaitForSeconds(0.5f);
             }
             
             //Host Data
@@ -93,8 +94,11 @@ public class PokdengManagerBOT : MonoBehaviour
             {
                 player.ElementAt(i).cardPlayer2.SetActive(true);
                 player.ElementAt(i).cardPlayer2.GetComponent<Image>().sprite = card[secondCard[i]];
-
                 player.ElementAt(i).totalScore = scoreCard[firstCard[i]] + scoreCard[secondCard[i]];
+
+                player.ElementAt(i).bgc2.SetActive(true);
+
+                yield return new WaitForSeconds(0.5f);
             }
 
             //Host Card
@@ -104,7 +108,7 @@ public class PokdengManagerBOT : MonoBehaviour
             host.totalScore = scoreCard[firstCard[9]] + scoreCard[secondCard[9]];
 
             //Next draw card
-            drawCard = 3;
+            drawCard = 0;
         
         }
 
@@ -113,15 +117,32 @@ public class PokdengManagerBOT : MonoBehaviour
             //player data
             for (int i = 0; i < 9; i++)
             {
-                if(player.ElementAt(i).totalScore < 4)
+                if(player.ElementAt(i).totalScore < 4) // score less than 4 auto draw card
                 {
                     player.ElementAt(i).cardPlayer3.SetActive(true);
                     player.ElementAt(i).cardPlayer3.GetComponent<Image>().sprite = card[thirdCard[i]];
-
                     player.ElementAt(i).totalScore = scoreCard[firstCard[i]] 
-                        + scoreCard[secondCard[i]] 
-                        + scoreCard[thirdCard[i]];
+                                                   + scoreCard[secondCard[i]] 
+                                                   + scoreCard[thirdCard[i]];
+
+                    player.ElementAt(i).bgc3.SetActive(true);
+
+                    yield return new WaitForSeconds(0.5f);
                 }
+
+                if(player.ElementAt(i).requestCard == true) //when player want to draw card
+                {
+                    player.ElementAt(i).cardPlayer3.SetActive(true);
+                    player.ElementAt(i).cardPlayer3.GetComponent<Image>().sprite = card[thirdCard[i]];
+                    player.ElementAt(i).totalScore = scoreCard[firstCard[i]]
+                                                   + scoreCard[secondCard[i]]
+                                                   + scoreCard[thirdCard[i]];
+
+                    player.ElementAt(i).bgc3.SetActive(true);
+
+                    yield return new WaitForSeconds(0.5f);
+                }
+
 
             }
 
@@ -139,8 +160,5 @@ public class PokdengManagerBOT : MonoBehaviour
 
 
     }
-
-
-
 
 }
