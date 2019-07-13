@@ -75,7 +75,7 @@ public class PokdengManagerBOT : MonoBehaviour
                 player.ElementAt(i).totalScore = scoreCard[firstCard[i]];
                 player.ElementAt(i).bgc1.SetActive(true);
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.2f);
             }
             
             //Host Data
@@ -96,9 +96,9 @@ public class PokdengManagerBOT : MonoBehaviour
                 player.ElementAt(i).cardPlayer2.GetComponent<Image>().sprite = card[secondCard[i]];
                 player.ElementAt(i).totalScore = scoreCard[firstCard[i]] + scoreCard[secondCard[i]];
 
-                player.ElementAt(i).bgc2.SetActive(true);
+               player.ElementAt(i).bgc2.SetActive(true);
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.2f);
             }
 
             //Host Card
@@ -125,9 +125,9 @@ public class PokdengManagerBOT : MonoBehaviour
                                                    + scoreCard[secondCard[i]] 
                                                    + scoreCard[thirdCard[i]];
 
-                    player.ElementAt(i).bgc3.SetActive(true);
+                   // player.ElementAt(i).bgc3.SetActive(true);
 
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.2f);
                 }
 
                 if(player.ElementAt(i).requestCard == true) //when player want to draw card
@@ -138,9 +138,9 @@ public class PokdengManagerBOT : MonoBehaviour
                                                    + scoreCard[secondCard[i]]
                                                    + scoreCard[thirdCard[i]];
 
-                    player.ElementAt(i).bgc3.SetActive(true);
+                   // player.ElementAt(i).bgc3.SetActive(true);
 
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.2f);
                 }
 
 
@@ -149,7 +149,7 @@ public class PokdengManagerBOT : MonoBehaviour
             //host data
             if (host.totalScore < 4)
             {
-                host.bgch3.SetActive(true);
+             //   host.bgch3.SetActive(true);
                 host.ch3.SetActive(true);
                 host.ch3.GetComponent<Image>().sprite = card[thirdCard[9]];
                 host.totalScore = host.totalScore + scoreCard[thirdCard[9]];

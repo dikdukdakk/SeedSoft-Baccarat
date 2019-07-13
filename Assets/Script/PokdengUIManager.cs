@@ -57,12 +57,29 @@ public class PokdengUIManager : MonoBehaviour
         PokdengManagerBOT.current.drawCard = 3;
         PokdengManagerBOT.current.player.ElementAt(4).requestCard = true;
         for (int i = 0; i < 9; i++)
+        {
             PokdengManagerBOT.current.player.ElementAt(i).score.enabled = true;
+            PokdengManagerBOT.current.player.ElementAt(i).bgc1.SetActive(false);
+            PokdengManagerBOT.current.player.ElementAt(i).bgc2.SetActive(false);
+           // PokdengManagerBOT.current.player.ElementAt(i).bgc3.SetActive(false);
+        }
+            
+
+        PokdengManagerBOT.current.host.bgch1.SetActive(false);
+        PokdengManagerBOT.current.host.bgch2.SetActive(false);
+      //  PokdengManagerBOT.current.host.bgch3.SetActive(false);
     }
 
     public void BTPass()
     {
         PokdengManagerBOT.current.drawCard = 3;
+        for (int i = 0; i < 9; i++)
+        {
+            PokdengManagerBOT.current.player.ElementAt(i).score.enabled = true;
+            PokdengManagerBOT.current.player.ElementAt(i).bgc1.SetActive(false);
+            PokdengManagerBOT.current.player.ElementAt(i).bgc2.SetActive(false);
+         //   PokdengManagerBOT.current.player.ElementAt(i).bgc3.SetActive(false);
+        }
     }
 
     public void BTSTART()

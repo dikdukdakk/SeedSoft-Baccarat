@@ -623,6 +623,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CardAnimation.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\HostCard.cs" />
     <Compile Include="Assets\Script\Player.cs" />
