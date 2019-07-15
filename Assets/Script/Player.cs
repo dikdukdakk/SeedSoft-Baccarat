@@ -8,19 +8,21 @@ public class Player : MonoBehaviour
     public static Player current;
 
     [Header ("Player Properties")]
-    public Text username;
-    public Text money;
-    public Text score;
-    public Image photo;
-    public int totalScore;
-    public int totalMoney;
+    public Text username;        //name user
+    public Text money;           //money user
+    public Image photo;          //image user
+    public float totalMoney;     //total money
+    public int totalScore = 0;   //total score in one round
+    public Text score;           //score in round
 
     [Header("Card Properties")]
     public GameObject cardPlayer1;
-    public GameObject cardPlayer2; //card host
+    public GameObject cardPlayer2;  //card player in one round
     public GameObject cardPlayer3;
-    public GameObject bgc1, bgc2, bgc3;
-    public bool requestCard;
+    public GameObject bgc1, bgc2, bgc3;  //bg card
+    public int typeCard1, typeCard2, typeCard3;
+    public GameObject X2X3;
+    public bool requestCard;   //player4 request card when score greater than 3
 
 
 
@@ -31,10 +33,10 @@ public class Player : MonoBehaviour
 
     void LateUpdate()
     {
-        GetScore();
+        GetScore();   //calculate score
         //GetStar();
 
-        ShowUIText();
+        ShowUIText(); //show all text user
     }
 
     public void GetScore()

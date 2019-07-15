@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager current;
     public int countPlayer;
 
     void Awake()
     {
+        current = this;
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -23,9 +25,5 @@ public class GameManager : MonoBehaviour
             return;
     }
 
-    public void PlayPokdengGame()
-    {
-        countPlayer++;
-        SceneManager.LoadScene("PokdengGame");
-    }
+    
 }

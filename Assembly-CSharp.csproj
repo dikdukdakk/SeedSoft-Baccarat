@@ -60,14 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CardAnimation.cs" />
+    <Compile Include="Assets\Script\CardAnimation.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\HostCard.cs" />
     <Compile Include="Assets\Script\Player.cs" />
-    <Compile Include="Assets\Script\PlayerCalculate.cs" />
     <Compile Include="Assets\Script\PokdengCalculate.cs" />
     <Compile Include="Assets\Script\PokdengManagerBOT.cs" />
     <Compile Include="Assets\Script\PokdengUIManager.cs" />
+    <Compile Include="Assets\Script\UIManager.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Administrator/Desktop/Project-CardGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

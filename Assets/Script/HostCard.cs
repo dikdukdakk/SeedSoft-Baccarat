@@ -8,22 +8,24 @@ public class HostCard : MonoBehaviour
     public static HostCard current;
 
     [Header("Host Properties")]
-    public Text username;
-    public Text money;
-    public Text score;
-    public Image photo;
-    public float totalScore = 0;
-    public float totalMoney;
+    public Text username;        //name user
+    public Text money;           //money user
+    public Image photo;          //image user
+    public float totalMoney;     //total money
+    public int totalScore = 0;   //total score in one round
+    public Text score;           //score in round
+
 
     [Header("Card Properties")]
-    public GameObject ch1; //card host
+    public GameObject ch1;       //card host
     public GameObject ch2,ch3; 
     public GameObject bgch1, bgch2, bgch3; //background card player
+    public int typeCard1, typeCard2, typeCard3;
+    public GameObject X2X3;
 
     void LateUpdate()
     {
         GetScore();
-
         ShowUIText();
     }
 
