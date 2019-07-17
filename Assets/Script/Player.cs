@@ -16,12 +16,14 @@ public class Player : MonoBehaviour
     public Text score;           //score in round
 
     [Header("Card Properties")]
+    public GameObject X2X3;
     public GameObject cardPlayer1;
     public GameObject cardPlayer2;  //card player in one round
     public GameObject cardPlayer3;
     public GameObject bgc1, bgc2, bgc3;  //bg card
     public int typeCard1, typeCard2, typeCard3;
-    public GameObject X2X3;
+    public float scoreCard1, scoreCard2, scoreCard3;
+    
     public bool requestCard;   //player4 request card when score greater than 3
 
 
@@ -39,11 +41,26 @@ public class Player : MonoBehaviour
         ShowUIText(); //show all text user
     }
 
-    public void GetScore()
+    public void ActiveAniamtion(int cntCard) //Active Animation
     {
-        if (totalScore >= 10)
+        cardPlayer1.GetComponent<Animator>().enabled = true;
+        bgc1.GetComponent<Animator>().enabled = true;
+        cardPlayer2.GetComponent<Animator>().enabled = true;
+        bgc2.GetComponent<Animator>().enabled = true;
+
+        if (cntCard == 3)
+        {
+            cardPlayer3.GetComponent<Animator>().enabled = true;
+            bgc3.GetComponent<Animator>().enabled = true;
+        }
+              
+    }
+
+    public void GetScore() // +- score
+    {
+        if (totalScore >= 10) //score greater than 9 => -10
             totalScore -= 10;
-        else if(totalScore >= 20)
+        else if(totalScore >= 20) //score greater than 18 => -20
             totalScore -= 20;
     }
 
