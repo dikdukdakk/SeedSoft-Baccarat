@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public GameObject bgc1, bgc2, bgc3;  //bg card
     public int typeCard1, typeCard2, typeCard3;
     public float scoreCard1, scoreCard2, scoreCard3;
+    public string checkSort; //เก็บค่าตัวเลขที่ได้เป็น String เพื่อเช็คหาไพ่เรียง
     
     public bool requestCard;   //player4 request card when score greater than 3
 

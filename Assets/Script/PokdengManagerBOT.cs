@@ -13,6 +13,7 @@ public class PokdengManagerBOT : MonoBehaviour
     public int drawCard;                           // รอบการ์ดที่แจก
     public List<Sprite> card = new List<Sprite>(); // รูปการ์ดทั้งหมด
     public List<int> typeCard = new List<int>();   // type of card => Club, Diamond, Heart, Spade
+    public List<string> sorf = new List<string>(); // เก็บตัวเลขเรียงทั้งหมด
     public List<float> scoreCard = new List<float>();  // คะแนนการ์ดทั้งหมด อ้างอิงลำดับจาก list card
     public List<int> firstCard = new List<int>();  // เก็บคะแนน และรูปการ์ดที่สุ่มได้ ใบที่ 1
     public List<int> secondCard = new List<int>(); // เก็บคะแนน และรูปการ์ดที่สุ่มได้ ใบที่ 2
@@ -83,6 +84,7 @@ public class PokdengManagerBOT : MonoBehaviour
                 player.ElementAt(i).typeCard1 = typeCard[firstCard[i]];
                 player.ElementAt(i).scoreCard1 = scoreCard[firstCard[i]];
 
+               
                 yield return new WaitForSeconds(0.2f); //delay draw card
             }//end draw card of 1-8
 
@@ -141,6 +143,9 @@ public class PokdengManagerBOT : MonoBehaviour
                 
                     player.ElementAt(i).typeCard3 = typeCard[thirdCard[i]];
                     player.ElementAt(i).scoreCard3 = scoreCard[thirdCard[i]];
+
+                    player.ElementAt(i).checkSort = "" + scoreCard[firstCard[i]].ToString() + " " + scoreCard[secondCard[i]].ToString() + " " + scoreCard[thirdCard[i]].ToString(); //เก็บค่าไพ่ที่ได้เป็นให้อยู่ในรูปแบบ String 
+
                     yield return new WaitForSeconds(0.2f);
                 }//end if
 
@@ -155,6 +160,12 @@ public class PokdengManagerBOT : MonoBehaviour
 
                     player.ElementAt(i).typeCard3 = typeCard[thirdCard[i]];
                     player.ElementAt(i).scoreCard3 = scoreCard[thirdCard[i]];
+
+                    
+                    player.ElementAt(i).checkSort = "" + scoreCard[firstCard[i]].ToString() +
+                                                    " " + scoreCard[secondCard[i]].ToString() +
+                                                    " " + scoreCard[thirdCard[i]].ToString();   
+                                                    
                     yield return new WaitForSeconds(0.2f);
                 }//end if
 
@@ -247,6 +258,19 @@ public class PokdengManagerBOT : MonoBehaviour
                     player.ElementAt(i).X2X3.SetActive(true); 
                     player.ElementAt(i).X2X3.GetComponent<Image>().sprite = X2X3Card[1];
                 }//end if
+
+                for (int j = 0; j < 66; j++)
+                {
+                    if (i != j)
+                    {
+                        if (player.ElementAt(i).checkSort == sorf[j])
+                        {
+                            player.ElementAt(i).X2X3.SetActive(true);
+                            player.ElementAt(i).X2X3.GetComponent<Image>().sprite = X2X3Card[2];
+                        }
+                        Debug.Log("" + j);
+                    }                    
+                }
 
                 // เช็ค 5 เด้ง (ไพ่ตอง)
                 if (player.ElementAt(i).scoreCard1 == player.ElementAt(i).scoreCard2 &&

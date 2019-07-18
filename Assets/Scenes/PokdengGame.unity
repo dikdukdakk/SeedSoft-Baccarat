@@ -1444,6 +1444,7 @@ MonoBehaviour:
   scoreCard1: 0
   scoreCard2: 0
   scoreCard3: 0
+  checkSort: 
   requestCard: 0
 --- !u!1 &381968008
 GameObject:
@@ -2477,6 +2478,7 @@ MonoBehaviour:
   scoreCard1: 0
   scoreCard2: 0
   scoreCard3: 0
+  checkSort: 
   requestCard: 0
 --- !u!1 &587002168
 GameObject:
@@ -3482,6 +3484,7 @@ MonoBehaviour:
   scoreCard1: 0
   scoreCard2: 0
   scoreCard3: 0
+  checkSort: 
   requestCard: 0
 --- !u!1 &693311039
 GameObject:
@@ -4427,6 +4430,7 @@ MonoBehaviour:
   scoreCard1: 0
   scoreCard2: 0
   scoreCard3: 0
+  checkSort: 
   requestCard: 0
 --- !u!1 &861482568
 GameObject:
@@ -6252,6 +6256,7 @@ MonoBehaviour:
   scoreCard1: 0
   scoreCard2: 0
   scoreCard3: 0
+  checkSort: 
   requestCard: 0
 --- !u!1 &1210018302
 GameObject:
@@ -6401,6 +6406,7 @@ MonoBehaviour:
   scoreCard1: 0
   scoreCard2: 0
   scoreCard3: 0
+  checkSort: 
   requestCard: 0
 --- !u!1 &1240467304
 GameObject:
@@ -6512,6 +6518,7 @@ MonoBehaviour:
   scoreCard1: 0
   scoreCard2: 0
   scoreCard3: 0
+  checkSort: 
   requestCard: 0
 --- !u!1 &1255300638
 GameObject:
@@ -7447,6 +7454,7 @@ MonoBehaviour:
   scoreCard1: 0
   scoreCard2: 0
   scoreCard3: 0
+  checkSort: 
   requestCard: 0
 --- !u!114 &1401029668
 MonoBehaviour:
@@ -8109,6 +8117,7 @@ MonoBehaviour:
   scoreCard1: 0
   scoreCard2: 0
   scoreCard3: 0
+  checkSort: 
   requestCard: 0
 --- !u!1 &1566017585
 GameObject:
@@ -9348,6 +9357,73 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0a1a2b83a79eb764aae61edaa2898b73, type: 3}
   - {fileID: 21300000, guid: 7dce66d148ec3a64593d2a22a56f4352, type: 3}
   typeCard: 01000000020000000300000004000000010000000200000003000000040000000100000002000000030000000400000001000000020000000300000004000000010000000200000003000000040000000100000002000000030000000400000001000000020000000300000004000000010000000200000003000000040000000100000002000000030000000400000001000000020000000300000004000000010000000200000003000000040000000100000002000000030000000400000001000000020000000300000004000000
+  sorf:
+  - 2 3 4
+  - 2 4 3
+  - 3 2 4
+  - 3 4 2
+  - 4 2 3
+  - 4 3 2
+  - 3 4 5
+  - 3 5 4
+  - 4 3 5
+  - 4 5 3
+  - 5 3 4
+  - 5 4 3
+  - 4 5 6
+  - 4 6 5
+  - 5 4 6
+  - 5 6 4
+  - 6 4 5
+  - 6 5 4
+  - 5 6 7
+  - 5 7 6
+  - 6 5 7
+  - 6 7 5
+  - 7 5 6
+  - 7 6 5
+  - 6 7 8
+  - 6 8 7
+  - 7 6 8
+  - 7 8 6
+  - 8 6 7
+  - 8 7 6
+  - 7 8 9
+  - 7 9 8
+  - 8 7 9
+  - 8 9 7
+  - 9 7 8
+  - 9 8 7
+  - 8 9 0
+  - 8 0 9
+  - 9 8 0
+  - 9 0 8
+  - 0 8 9
+  - 0 9 8
+  - 9 0 0.1
+  - 9 0.1 0
+  - 0 9 0.1
+  - 0 0.1 9
+  - 0.1 9 0
+  - 0.1 0 9
+  - 0 0.1 0.2
+  - 0 0.2 0.1
+  - 0.1 0 0.2
+  - 0.1 0.2 0
+  - 0.2 0 0.1
+  - 0.2 0.1 0
+  - 0.1 0.2 0.3
+  - 0.1 0.3 0.2
+  - 0.2 0.1 0.3
+  - 0.2 0.3 0.1
+  - 0.3 0.1 0.2
+  - 0.3 0.2 0.1
+  - 0.2 0.3 1
+  - 0.2 1 0.3
+  - 0.3 0.2 1
+  - 0.3 1 0.2
+  - 1 0.2 0.3
+  - 1 0.3 0.2
   scoreCard:
   - 1
   - 1
