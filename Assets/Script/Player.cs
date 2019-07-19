@@ -14,17 +14,17 @@ public class Player : MonoBehaviour
     public float totalMoney;     //total money
     public int totalScore = 0;   //total score in one round
     public Text score;           //score in round
+    public int getStar = 1;     //player get X2 X3 X5 (2 3 5)
 
     [Header("Card Properties")]
-    public GameObject X2X3;
-    public GameObject cardPlayer1;
-    public GameObject cardPlayer2;  //card player in one round
-    public GameObject cardPlayer3;
-    public GameObject bgc1, bgc2, bgc3;  //bg card
-    public int typeCard1, typeCard2, typeCard3;
-    public float scoreCard1, scoreCard2, scoreCard3;
+    public GameObject[] cardPlayer;
+    public GameObject[] bgcardPlayer;  //bg card
+    public int[] typeCard;
+    public float[] scoreCard;
+    public Image bgscore;
     public string checkSort; //เก็บค่าตัวเลขที่ได้เป็น String เพื่อเช็คหาไพ่เรียง
-    
+    public GameObject X2X3;
+
     public bool requestCard;   //player4 request card when score greater than 3
 
 
@@ -37,22 +37,22 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         GetScore();   //calculate score
-        //GetStar();
 
-        ShowUIText(); //show all text user
+        ShowUIText(getStar); //show all text user
     }
 
     public void ActiveAniamtion(int cntCard) //Active Animation
     {
-        cardPlayer1.GetComponent<Animator>().enabled = true;
-        bgc1.GetComponent<Animator>().enabled = true;
-        cardPlayer2.GetComponent<Animator>().enabled = true;
-        bgc2.GetComponent<Animator>().enabled = true;
+        for(int i=0;i<2;i++)
+        {
+            cardPlayer[i].GetComponent<Animator>().enabled = true;
+            bgcardPlayer[i].GetComponent<Animator>().enabled = true;
+        }
 
         if (cntCard == 3)
         {
-            cardPlayer3.GetComponent<Animator>().enabled = true;
-            bgc3.GetComponent<Animator>().enabled = true;
+            cardPlayer[2].GetComponent<Animator>().enabled = true;
+            bgcardPlayer[2].GetComponent<Animator>().enabled = true;
         }
               
     }
@@ -67,9 +67,17 @@ public class Player : MonoBehaviour
 
 
 
-    public void ShowUIText()
+    public void ShowUIText(int changeText)
     {
-        score.text = "" + totalScore + " แต้ม";
+        switch (changeText)
+        {
+            case 1: score.text = "" + totalScore + " แต้ม"; break;
+            case 4: score.text = "ไพ่เรียง"; break;
+            case 6: score.text = "ไพ่เซียน"; break;
+            case 5: score.text = "ไพ่ตอง"; break;
+
+            case 8: score.text = "ป๊อก " + totalScore; break;
+        }
     }
 
 }

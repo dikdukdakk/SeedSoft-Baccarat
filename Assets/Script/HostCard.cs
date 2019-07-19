@@ -14,15 +14,16 @@ public class HostCard : MonoBehaviour
     public float totalMoney;     //total money
     public int totalScore = 0;   //total score in one round
     public Text score;           //score in round
-
+    public int statusHost;       //host get X2 X3 X5 (2 3 5)
 
     [Header("Card Properties")]
+    public GameObject[] cardHost;   //card host
+    public GameObject[] bgcardHost; //background card player
+    public int[] typeCard;
+    public float[] scoreCard;
+    public string checkSort; //เก็บค่าตัวเลขที่ได้เป็น String เพื่อเช็คหาไพ่เรียง
     public GameObject X2X3;
-    public GameObject ch1;       //card host
-    public GameObject ch2,ch3; 
-    public GameObject bgch1, bgch2, bgch3; //background card player
-    public int typeCard1, typeCard2, typeCard3;
-    
+
 
     void LateUpdate()
     {
@@ -40,15 +41,16 @@ public class HostCard : MonoBehaviour
 
     public void ActiveAniamtion(int cntCard) //Active Animation
     {
-        ch1.GetComponent<Animator>().enabled = true;
-        bgch1.GetComponent<Animator>().enabled = true;
-        ch2.GetComponent<Animator>().enabled = true;
-        bgch2.GetComponent<Animator>().enabled = true;
+        for (int i = 0; i < 2; i++)
+        {
+            cardHost[i].GetComponent<Animator>().enabled = true;
+            bgcardHost[i].GetComponent<Animator>().enabled = true;
+        }
 
         if (cntCard == 3)
         {
-            ch3.GetComponent<Animator>().enabled = true;
-            bgch3.GetComponent<Animator>().enabled = true;
+            cardHost[2].GetComponent<Animator>().enabled = true;
+            bgcardHost[2].GetComponent<Animator>().enabled = true;
         }
 
     }
