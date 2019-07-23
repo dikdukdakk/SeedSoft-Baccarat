@@ -212,8 +212,8 @@ public class PokdengManagerBOT : MonoBehaviour
                     if (player.ElementAt(i).typeCard[0] == player.ElementAt(i).typeCard[1] ||
                         player.ElementAt(i).scoreCard[0] == player.ElementAt(i).scoreCard[1])
                     {  //ถ้าดอกใบที่ และแต้ม ใบที่ 1 2 เหมือนกัน
-                        if(player.ElementAt(i).cardPlayer[1].activeSelf == false)
-                            player.ElementAt(i).X2X3.SetActive(true); //active x2
+                         //active x2 
+                        player.ElementAt(i).X2X3.GetComponent<Image>().enabled = true;
                     }
 
                     if (player.ElementAt(i).totalScore == 8 || player.ElementAt(i).totalScore == 9) //pok 8,9
@@ -221,6 +221,7 @@ public class PokdengManagerBOT : MonoBehaviour
                         player.ElementAt(i).ActiveAniamtion(cntCard);  //call ActiveAnimation funtion in Player.cs
                         player.ElementAt(i).score.enabled = true;      //active score text 
                         player.ElementAt(i).bgscore.enabled = true;
+                        player.ElementAt(i).X2X3.SetActive(true);
                         player.ElementAt(i).getStar = 8;                        
                     }//end if
                     
@@ -262,7 +263,8 @@ public class PokdengManagerBOT : MonoBehaviour
                 if (player.ElementAt(i).typeCard[0] == player.ElementAt(i).typeCard[1] &&
                     player.ElementAt(i).typeCard[0] == player.ElementAt(i).typeCard[2] &&
                     player.ElementAt(i).typeCard[1] == player.ElementAt(i).typeCard[2]){ //if else
-                    player.ElementAt(i).X2X3.SetActive(true); 
+                    player.ElementAt(i).X2X3.GetComponent<Image>().enabled = true;
+                    player.ElementAt(i).X2X3.SetActive(true);
                     player.ElementAt(i).X2X3.GetComponent<Image>().sprite = X2X3Card[1];
                 }//end if
 
@@ -271,6 +273,7 @@ public class PokdengManagerBOT : MonoBehaviour
                     player.ElementAt(i).scoreCard[1] > 0 && player.ElementAt(i).scoreCard[1] <= .9 &&
                     player.ElementAt(i).scoreCard[2] > 0 && player.ElementAt(i).scoreCard[2] <= .9){
                     player.ElementAt(i).X2X3.GetComponent<Image>().sprite = X2X3Card[1];
+                    player.ElementAt(i).X2X3.SetActive(true);
                     player.ElementAt(i).getStar = 6;
                 }
 
@@ -289,7 +292,7 @@ public class PokdengManagerBOT : MonoBehaviour
                             if (player.ElementAt(i).typeCard[0] == player.ElementAt(i).typeCard[1] &&
                                 player.ElementAt(i).typeCard[0] == player.ElementAt(i).typeCard[2] &&
                                 player.ElementAt(i).typeCard[1] == player.ElementAt(i).typeCard[2]){ //if
-                                player.ElementAt(i).X2X3.SetActive(true);
+                                player.ElementAt(i).X2X3.GetComponent<Image>().enabled = true;
                                 player.ElementAt(i).X2X3.GetComponent<Image>().sprite = X2X3Card[2]; //change image x2 x3 to x5
                                 player.ElementAt(i).getStar = 5;
                             }//end if
@@ -301,9 +304,12 @@ public class PokdengManagerBOT : MonoBehaviour
                 if (player.ElementAt(i).scoreCard[0] == player.ElementAt(i).scoreCard[1] &&
                     player.ElementAt(i).scoreCard[0] == player.ElementAt(i).scoreCard[2] &&
                     player.ElementAt(i).scoreCard[1] == player.ElementAt(i).scoreCard[2]){ //if else
+                    player.ElementAt(i).X2X3.GetComponent<Image>().enabled = true;
                     player.ElementAt(i).X2X3.SetActive(true);
                     player.ElementAt(i).X2X3.GetComponent<Image>().sprite = X2X3Card[2]; //change image x2 x3 to x5
                 }//end if
+
+
             }//end loop
 
             //Host data
