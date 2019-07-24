@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Card1
+    uniqueID: 2567128119
+    locked: 0
+  - name: Card2
+    uniqueID: 1225285683
+    locked: 0
+  - name: Card3
+    uniqueID: 1469213175
+    locked: 0
+  - name: Other
+    uniqueID: 3455718237
+    locked: 0

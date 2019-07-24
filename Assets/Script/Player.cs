@@ -8,22 +8,22 @@ public class Player : MonoBehaviour
     public static Player current;
 
     [Header ("Player Properties")]
-    public Text username;        //name user
-    public Text money;           //money user
-    public Image photo;          //image user
+    public TextMesh username;        //name user
+    public TextMesh money;           //money user
+    public Sprite photo;          //image user
     public float totalMoney;     //total money
     public int totalScore = 0;   //total score in one round
-    public Text score;           //score in round
     public int getStar = 1;     //player get X2 X3 X5 (2 3 5)
 
     [Header("Card Properties")]
-    public GameObject[] cardPlayer;
-    public GameObject[] bgcardPlayer;  //bg card
+    public GameObject[] cardPlayer;    //card player
+    public GameObject[] bgcardPlayer;  //background card
     public int[] typeCard;
     public float[] scoreCard;
-    public Image bgscore;
-    public string checkSort; //เก็บค่าตัวเลขที่ได้เป็น String เพื่อเช็คหาไพ่เรียง
+    public SpriteRenderer bgscore;
     public GameObject X2X3;
+    public TextMesh score;  //score in round
+    public string checkSort;   //เก็บค่าตัวเลขที่ได้เป็น String เพื่อเช็คหาไพ่เรียง
 
     public bool requestCard;   //player4 request card when score greater than 3
 
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
     }
 
 
-
+    
     public void ShowUIText(int changeText)
     {
         switch (changeText)
@@ -79,5 +79,6 @@ public class Player : MonoBehaviour
             case 8: score.text = "ป๊อก " + totalScore; break;
         }
     }
+    
 
 }
