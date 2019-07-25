@@ -13,8 +13,7 @@ public class HostCard : MonoBehaviour
     public Image photo;          //image user
     public float totalMoney;     //total money
     public int totalScore = 0;   //total score in one round
-    public int statusHost;       //host get X2 X3 X5 (2 3 5)
-    public int getStar = 1;
+    public int gameStatus;
 
     [Header("Card Properties")]
     public GameObject[] cardHost;   //card host
@@ -24,13 +23,16 @@ public class HostCard : MonoBehaviour
     public TextMesh score;  //score in round
     public SpriteRenderer bgscore;
     public GameObject X2X3;
+
+    public int getText;
+    public int getRole;
     public string checkSort; //เก็บค่าตัวเลขที่ได้เป็น String เพื่อเช็คหาไพ่เรียง
 
 
     void LateUpdate()
     {
         GetScore();
-        ShowUIText(getStar);
+        ShowUIText(getText);
     }
 
     public void GetScore()

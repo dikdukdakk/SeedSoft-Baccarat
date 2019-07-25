@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public Sprite photo;          //image user
     public float totalMoney;     //total money
     public int totalScore = 0;   //total score in one round
-    public int getStar = 1;     //player get X2 X3 X5 (2 3 5)
+    public string gameStatus;
 
     [Header("Card Properties")]
     public GameObject[] cardPlayer;    //card player
@@ -21,10 +21,13 @@ public class Player : MonoBehaviour
     public int[] typeCard;
     public float[] scoreCard;
     public SpriteRenderer bgscore;
+    public SpriteRenderer Winner;
     public GameObject X2X3;
     public TextMesh score;  //score in round
     public string checkSort;   //เก็บค่าตัวเลขที่ได้เป็น String เพื่อเช็คหาไพ่เรียง
 
+    public int getText;     //player get X2 X3 X5 (2 3 5)
+    public int getRole;     //Role 1 = normal point,  2 = *2 point, 3 = *3 point, 4 = ไพ่เรียง ไพ่เซียน, 5 = ไพ่ตอง, 8 = pok8, 9 = pok9
     public bool requestCard;   //player4 request card when score greater than 3
 
 
@@ -38,7 +41,7 @@ public class Player : MonoBehaviour
     {
         GetScore();   //calculate score
 
-        ShowUIText(getStar); //show all text user
+        ShowUIText(getText); //show all text user
     }
 
     public void ActiveAniamtion(int cntCard) //Active Animation
