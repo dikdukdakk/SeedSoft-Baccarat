@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public string checkSort;   //เก็บค่าตัวเลขที่ได้เป็น String เพื่อเช็คหาไพ่เรียง
 
     public int getText;     //player get X2 X3 X5 (2 3 5)
-    public int getRole;     //Role 1 = normal point,  2 = *2 point, 3 = *3 point, 4 = ไพ่เรียง ไพ่เซียน, 5 = ไพ่ตอง, 8 = pok8, 9 = pok9
+    public float getRole;     //Role 1 = normal point,  2 = *2 point, 3 = *3 point, 4 = ไพ่เรียง ไพ่เซียน, 5 = ไพ่ตอง, 8 = pok8, 9 = pok9
     public bool requestCard;   //player4 request card when score greater than 3
 
 

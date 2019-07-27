@@ -25,7 +25,7 @@ public class HostCard : MonoBehaviour
     public GameObject X2X3;
 
     public int getText;
-    public int getRole;
+    public float getRole;
     public string checkSort; //เก็บค่าตัวเลขที่ได้เป็น String เพื่อเช็คหาไพ่เรียง
 
 
@@ -77,7 +77,7 @@ public class HostCard : MonoBehaviour
             case 4: score.text = "ไพ่เรียง"; break;
             case 6: score.text = "ไพ่เซียน"; break;
             case 5: score.text = "ไพ่ตอง"; break;
-
+            case 7: score.text = "สเตจฟรัท"; break;
             case 8: score.text = "ป๊อก " + totalScore; break;
         }
     }

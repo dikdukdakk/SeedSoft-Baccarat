@@ -623,14 +623,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CardAnimation.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
-    <Compile Include="Assets\Script\HostCard.cs" />
-    <Compile Include="Assets\Script\Player.cs" />
-    <Compile Include="Assets\Script\PlayerCalculate.cs" />
-    <Compile Include="Assets\Script\PokdengCalculate.cs" />
-    <Compile Include="Assets\Script\PokdengManagerBOT.cs" />
-    <Compile Include="Assets\Script\PokdengUIManager.cs" />
+    <Compile Include="Assets\Script\SinglePlayer\HostCard.cs" />
+    <Compile Include="Assets\Script\SinglePlayer\Player.cs" />
+    <Compile Include="Assets\Script\SinglePlayer\PokdengCalculate.cs" />
+    <Compile Include="Assets\Script\SinglePlayer\PokdengManagerBOT.cs" />
+    <Compile Include="Assets\Script\SinglePlayer\PokdengUIManager.cs" />
+    <Compile Include="Assets\Script\SinglePlayer\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryCommon.uss" />

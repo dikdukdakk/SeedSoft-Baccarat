@@ -65,6 +65,10 @@ public class PokdengManagerBOT : MonoBehaviour
         if (!newGame)
             return;
 
+        firstCard.Clear();  //reset list of card1,2,3
+        secondCard.Clear();
+        thirdCard.Clear();
+
         //shuffle deck
         deck = Enumerable.Range(0, 52).OrderBy(c => rnd.Next()).ToList();  // สลับตำแหน่ง 0, 52 ให้ตำแหน่งไม่เรียงกัน
 
@@ -77,12 +81,17 @@ public class PokdengManagerBOT : MonoBehaviour
         for (int i = 20; i < 30; i++)
             thirdCard.Add(deck.ElementAt(i));   // เก็บค่าไพ่ที่ได้ลำดับที่ 10-19 ไว้ใน ตัวแปรการ์ดใบที่ 3
 
+        StartCoroutine(waitShuffleDeck());
+    }
+    IEnumerator waitShuffleDeck()
+    {
+        yield return new WaitForSeconds(1);
+        shuffledeck = false;
         drawCard = 1; //เริ่้มแจกการ์ดใบที่ 1
     }
 
     IEnumerator RandomCard()
     {//Randomcard
-        shuffledeck = false;
         if (drawCard == 1) // card = 1
         {//if
             //Player Data
@@ -110,7 +119,6 @@ public class PokdengManagerBOT : MonoBehaviour
             //next draw card
             drawCard = 2;
         }//end if
-
         else if (drawCard == 2) //card = 2
         {//if
             //Player Data
@@ -135,14 +143,10 @@ public class PokdengManagerBOT : MonoBehaviour
             host.typeCard[1] = typeCard[secondCard[9]]; //set number of type card2
             host.scoreCard[1] = scoreCard[secondCard[9]];
            
-
             //หลังจากแจกการ์ดถ้าผู้เล่นหรือเจ้าได้ 8 และ 9 การ์ดจะเปิดเอง
-            StartCoroutine(Calculate(drawCard));
-            
+            StartCoroutine(Calculate(drawCard));     
             drawCard = 0;
-            
-
-
+           
         }//end if
 
         else if (drawCard == 3) //card = 3
@@ -205,10 +209,9 @@ public class PokdengManagerBOT : MonoBehaviour
                                  " " + scoreCard[thirdCard[9]].ToString();
             }//end if
 
-            //การ์ดทั้งหมดจะถูกเปิดออก
+            //setting delay
             StartCoroutine(Calculate(drawCard));
-
-
+            drawCard = 0;
         }//end if
 
 
@@ -216,9 +219,17 @@ public class PokdengManagerBOT : MonoBehaviour
 
     IEnumerator Calculate(int cntCard)
     {//Calculate
-        yield return new WaitForSeconds(2); //Delay draw card 2 sec
         if (cntCard == 2)
         {//if cnt = 2
+
+            //setting dealy 10 sec before draw card
+            PokdengUIManager.current.UItexttimer.enabled = true;
+            PokdengUIManager.current.UIbgtimer.enabled = true;
+            for (int i = 10; i > 0; i--)
+            {
+                PokdengUIManager.current.UItexttimer.text = "" + i;
+                yield return new WaitForSeconds(1f);
+            } //UI timer text
             
             //auto open card AI, when ai get pok 8,9    
             for (int i = 0; i < 9; i++)
@@ -249,8 +260,7 @@ public class PokdengManagerBOT : MonoBehaviour
                     
                
             }//end loop
-
-            yield return new WaitForSeconds(2);   //Delay draw card 2 sec    
+ 
             host.getRole = 1;
             host.getText = 1;
             // เช็ค 2 เด้ง
@@ -259,6 +269,7 @@ public class PokdengManagerBOT : MonoBehaviour
                 host.X2X3.GetComponent<SpriteRenderer>().enabled = true;
                 host.getRole = 2; //ส่งลำดับของไพ่
             }
+
 
             if (host.totalScore == 8 || host.totalScore == 9) //auto open all player, when host get pok 8,9
             {//if else
@@ -277,16 +288,50 @@ public class PokdengManagerBOT : MonoBehaviour
                     player.ElementAt(i).X2X3.SetActive(true);
                 }//end loop
 
+                PokdengUIManager.current.UItexttimer.enabled = false;
+                PokdengUIManager.current.UIbgtimer.enabled = false;
+                yield return new WaitForSeconds(1);
+                PokdengUIManager.current.UItexttimer.enabled = true;
+                PokdengUIManager.current.UIbgtimer.enabled = true;
+                for (int i = 5; i > 0; i--)
+                {
+                    PokdengUIManager.current.UItexttimer.text = "" + i;
+                    yield return new WaitForSeconds(1f);
+                }
+                drawCard = 0;
+                PokdengUIManager.current.UItexttimer.enabled = false;
+                PokdengUIManager.current.UIbgtimer.enabled = false;
 
             }//end if
-
-            
+            else
+            {
+                PokdengUIManager.current.UItexttimer.enabled = false;
+                PokdengUIManager.current.UIbgtimer.enabled = false;
+                yield return new WaitForSeconds(1);
+                PokdengUIManager.current.UItexttimer.enabled = true;
+                PokdengUIManager.current.UIbgtimer.enabled = true;
+                for (int i = 5; i > 0; i--)
+                {
+                    PokdengUIManager.current.UItexttimer.text = "" + i;
+                    yield return new WaitForSeconds(1f);
+                }
+                drawCard = 3;
+                PokdengUIManager.current.UItexttimer.enabled = false;
+                PokdengUIManager.current.UIbgtimer.enabled = false;
+            }
 
         }//end cnt = 2
         else if (cntCard == 3)
         {//if cnt = 3
-            yield return new WaitForSeconds(2);
-            
+            //setting dealy 10 sec before draw card
+            PokdengUIManager.current.UItexttimer.enabled = true;
+            PokdengUIManager.current.UIbgtimer.enabled = true;
+            for (int i = 7; i > 0; i--)
+            {
+                PokdengUIManager.current.UItexttimer.text = "" + i;
+                yield return new WaitForSeconds(1f);
+            } //UI timer text
+
             //Player data
             for (int i = 0; i < 9; i++)
             {//loop
@@ -298,6 +343,11 @@ public class PokdengManagerBOT : MonoBehaviour
                     player.ElementAt(i).X2X3.SetActive(false); //X2X3 gameObject will be false (waiting status card3)
                     player.ElementAt(i).getText = 1;
                     player.ElementAt(i).getRole = 1;
+                }
+                else if (!player.ElementAt(i).cardPlayer[2].active)
+                {
+                    player.ElementAt(i).typeCard[2] = 0;
+                    player.ElementAt(i).scoreCard[2] = 0;
                 }
 
                 // เช็ค 3 เด้ง ไพ่ดอกเหมือนกัน
@@ -315,6 +365,7 @@ public class PokdengManagerBOT : MonoBehaviour
                     player.ElementAt(i).scoreCard[1] > 0 && player.ElementAt(i).scoreCard[1] <= .9 &&
                     player.ElementAt(i).scoreCard[2] > 0 && player.ElementAt(i).scoreCard[2] <= .9){
                     player.ElementAt(i).X2X3.GetComponent<SpriteRenderer>().sprite = X2X3Card[1];
+                    player.ElementAt(i).X2X3.GetComponent<SpriteRenderer>().enabled = true;
                     player.ElementAt(i).X2X3.SetActive(true);
                     player.ElementAt(i).getText = 6;
                     player.ElementAt(i).getRole = 4;
@@ -330,7 +381,7 @@ public class PokdengManagerBOT : MonoBehaviour
                             player.ElementAt(i).X2X3.SetActive(true);
                             player.ElementAt(i).X2X3.GetComponent<SpriteRenderer>().sprite = X2X3Card[1];
                             player.ElementAt(i).getText = 4;
-                            player.ElementAt(i).getRole = 4;
+                            player.ElementAt(i).getRole = 4.5f;
 
                             // เช็ค 5 เด้ง (ไพ่เรียง + ดอกเหมือนกัน) => สเตทฟรัช
                             if (player.ElementAt(i).typeCard[0] == player.ElementAt(i).typeCard[1] &&
@@ -338,7 +389,7 @@ public class PokdengManagerBOT : MonoBehaviour
                                 player.ElementAt(i).typeCard[1] == player.ElementAt(i).typeCard[2]){ //if
                                 player.ElementAt(i).X2X3.GetComponent<SpriteRenderer>().enabled = true;
                                 player.ElementAt(i).X2X3.GetComponent<SpriteRenderer>().sprite = X2X3Card[2]; //change image x2 x3 to x5
-                                player.ElementAt(i).getText = 5;
+                                player.ElementAt(i).getText = 7;
                                 player.ElementAt(i).getRole = 5;
                             }//end if
                         }//end if
@@ -352,6 +403,8 @@ public class PokdengManagerBOT : MonoBehaviour
                     player.ElementAt(i).X2X3.GetComponent<SpriteRenderer>().enabled = true;
                     player.ElementAt(i).X2X3.SetActive(true);
                     player.ElementAt(i).X2X3.GetComponent<SpriteRenderer>().sprite = X2X3Card[2]; //change image x2 x3 to x5
+                    player.ElementAt(i).getText = 5;
+                    player.ElementAt(i).getRole = 5.5f;
                 }//end if
 
                 if (player.ElementAt(i).cardPlayer[2].active == false)
@@ -367,28 +420,36 @@ public class PokdengManagerBOT : MonoBehaviour
             host.score.GetComponent<MeshRenderer>().enabled = true;   //active score text 
             host.bgscore.enabled = true;
             if (host.cardHost[2].active) //ถ้า การ์ดใบที่ 3 เปิด ให้ทำงาน if นี้
+            {
                 host.X2X3.SetActive(false); //unactive x2x3 gameobject
+                host.getText = 1;
+                host.getRole = 1;
 
+            }
+            else if(!host.cardHost[2].active)
+            {
+                host.typeCard[2] = 0;
+                host.scoreCard[2] = 0;
+            }
 
-
-            //ยังไม่ได้แยก
             if (host.typeCard[0] == host.typeCard[1] && host.typeCard[0] == host.typeCard[2] && host.typeCard[1] == host.typeCard[2]) 
-            {//if ถ้าดอกที่ 1,2,3 เหมือนกัน และ ไพ่เซียน
+            {//if เช็คดอกทั้ง 3 เหมือนกัน
                 host.X2X3.SetActive(true);  //active x3
+                host.X2X3.GetComponent<SpriteRenderer>().enabled = true;
                 host.X2X3.GetComponent<SpriteRenderer>().sprite = X2X3Card[1]; //change image x2 to x3
                 host.getRole = 3;
             }//end if
 
             if (host.scoreCard[0] > 0 && host.scoreCard[0] <= .9 && host.scoreCard[1] > 0 && host.scoreCard[1] <= .9 && 
                 host.scoreCard[2] > 0 && host.scoreCard[2] <= .9)
-            {//if ถ้าดอกที่ 1,2,3 เหมือนกัน และ ไพ่เซียน
+            {//if เช็คไพ่เซียน
                 host.X2X3.SetActive(true);  //active x3
+                host.X2X3.GetComponent<SpriteRenderer>().enabled = true;
                 host.X2X3.GetComponent<SpriteRenderer>().sprite = X2X3Card[1]; //change image x2 to x3
                 host.getRole = 4;
             }//end if
 
-
-            //เช็ค 3 เด้ง (ไพ่เรียง)
+            //เช็ค 3 ไพ่เรียง และ สเตทฟรัช
             for (int j = 0; j < 66; j++)
             {//loop
                 if (host.checkSort == sorf[j]) //ถ้าไพ่ทั้ง 3 เป็นไพ่เรียง
@@ -396,7 +457,7 @@ public class PokdengManagerBOT : MonoBehaviour
                     host.X2X3.SetActive(true);
                     host.X2X3.GetComponent<SpriteRenderer>().sprite = X2X3Card[1];
                     host.getText = 4;
-                    host.getRole = 4;
+                    host.getRole = 4.5f;
 
                     // เช็ค 5 เด้ง (ไพ่เรียง + ดอกเหมือนกัน) => สเตทฟรัช
                     if (host.typeCard[0] == host.typeCard[1] && host.typeCard[0] == host.typeCard[2] && host.typeCard[1] == host.typeCard[2])
@@ -415,11 +476,11 @@ public class PokdengManagerBOT : MonoBehaviour
                 host.X2X3.SetActive(true);
                 host.X2X3.GetComponent<SpriteRenderer>().sprite = X2X3Card[2]; //change image x2 x3 to x5
                 host.getText = 5;
-                host.getRole = 5;
+                host.getRole = 5.5f;
             }//end if
 
-
-            
+            PokdengUIManager.current.UItexttimer.enabled = false;
+            PokdengUIManager.current.UIbgtimer.enabled = false;
 
         } //end cnt = 3
 
@@ -431,11 +492,11 @@ public class PokdengManagerBOT : MonoBehaviour
 
     }//end Calculate
 
-    public void WinLose() //active winner gameObject
+    void WinLose() //active winner gameObject
     {
         for(int i=0;i<9;i++) //player 9 people
         {
-            if(host.getRole >= 8) //host get pok 8
+            if (host.getRole >= 8 || player.ElementAt(i).getRole >= 8) //host get pok 8
             {
                 if (host.getRole == player.ElementAt(i).getRole) //player get pok 8 too
                     player.ElementAt(i).gameStatus = "Draw";  //this round is equal
@@ -448,10 +509,11 @@ public class PokdengManagerBOT : MonoBehaviour
                     player.ElementAt(i).gameStatus = "Lose"; //other condition player is lose
             }
 
-            else if(host.getRole >= 1 && host.getRole <= 3) //host get normal type card
+            //host or player get normal type card
+            else if ((host.getRole >= 1 && host.getRole <= 3) || (player.ElementAt(i).getRole >= 1 && player.ElementAt(i).getRole <= 3))
             {
-                if(host.totalScore == player.ElementAt(i).totalScore) //host and player is same point
-                    player.ElementAt(i).gameStatus = "Draw"; 
+                if (host.totalScore == player.ElementAt(i).totalScore) //host and player is same point
+                    player.ElementAt(i).gameStatus = "Draw";
                 else if (host.totalScore < player.ElementAt(i).totalScore) //player get greater than host point
                 {
                     player.ElementAt(i).gameStatus = "Win";
@@ -461,29 +523,65 @@ public class PokdengManagerBOT : MonoBehaviour
                     player.ElementAt(i).gameStatus = "Lose"; //player get less then host point
             }
 
-            //เหลือไพ่พิเศษ 3 ใบ
-        }
+            //host or player get special of 3* card
+            else if ((host.getRole >= 4 && host.getRole <= 4.5) || (player.ElementAt(i).getRole >= 1 && player.ElementAt(i).getRole <= 3))
+            {
+                if (host.getRole == player.ElementAt(i).getRole) //เจ้าและผู้เล่น ได้ไพ่เรียง หรือไพ่เซียนเหมือนกัน
+                    player.ElementAt(i).gameStatus = "Draw";
+                else if (host.getRole < player.ElementAt(i).getRole) //ผู้เล่นได้ไพ่เรียง เจ้าได้ไพ่เซียน
+                {
+                    player.ElementAt(i).gameStatus = "Win";
+                    player.ElementAt(i).Winner.enabled = true;
+                }
+                else
+                    player.ElementAt(i).gameStatus = "Lose"; //เจ้าได้ไพ่ลำดับที่สูงกว่า
+            }
+
+            //host or player get special of *5 card
+            else
+            {
+                if (host.getRole == player.ElementAt(i).getRole) //เจ้าและผู้เล่น ได้ไพ่ตอง หรือสเตจฟรัทเหมือนกัน
+                    player.ElementAt(i).gameStatus = "Draw";
+                else if (host.getRole < player.ElementAt(i).getRole) //ผู้เล่นได้ไพ่ตอง เจ้าได้สเตจฟรัท
+                {
+                    player.ElementAt(i).gameStatus = "Win";
+                    player.ElementAt(i).Winner.enabled = true;
+                }
+                else
+                    player.ElementAt(i).gameStatus = "Lose"; 
+            }
+        } 
     }
 
-    IEnumerator NewGame() //เริ่มเกมใหม่ รีเซตค่าเป็นเริ่มต้น
+    IEnumerator NewGame()
     {
+        PokdengUIManager.current.UItexttimer.enabled = true;
+        PokdengUIManager.current.UIbgtimer.enabled = true;
 
-        yield return new WaitForSeconds(5f);
-        Color defaultColor = new Color(255f, 255f, 255f,255f); //default setting color
-        for (int i=0;i<9;i++)//count of player
+        for (int i = 10; i > 0; i--)
         {
-            for(int j=0;j<3;j++) //count of card 1 2 3
+            PokdengUIManager.current.UItexttimer.text = "" + i;
+            yield return new WaitForSeconds(1f);
+        }
+
+        PokdengUIManager.current.UItexttimer.enabled = false;
+        PokdengUIManager.current.UIbgtimer.enabled = false;
+
+        Color defaultColor = new Color(255f, 255f, 255f, 255f); //default setting color
+        for (int i = 0; i < 9; i++)//count of player
+        {
+            for (int j = 0; j < 3; j++) //count of card 1 2 3
             {
                 player.ElementAt(i).cardPlayer[j].SetActive(false);
                 player.ElementAt(i).bgcardPlayer[j].SetActive(false);
-                if(player.ElementAt(4) != player.ElementAt(i))
+                if (player.ElementAt(4) != player.ElementAt(i))
                     player.ElementAt(i).bgcardPlayer[j].GetComponent<SpriteRenderer>().color = defaultColor;
 
 
                 host.cardHost[j].SetActive(false);
                 host.bgcardHost[j].GetComponent<SpriteRenderer>().color = defaultColor;
                 host.bgcardHost[j].SetActive(false);
-               
+
             }
             if (player.ElementAt(4) != player.ElementAt(i))
             {
@@ -494,7 +592,7 @@ public class PokdengManagerBOT : MonoBehaviour
             player.ElementAt(i).X2X3.SetActive(false);
             player.ElementAt(i).X2X3.GetComponent<SpriteRenderer>().enabled = false;
             player.ElementAt(i).Winner.GetComponent<SpriteRenderer>().enabled = false;
-            
+            player.ElementAt(i).requestCard = false;
         }
 
         host.score.GetComponent<MeshRenderer>().enabled = false;
@@ -503,34 +601,12 @@ public class PokdengManagerBOT : MonoBehaviour
         host.X2X3.GetComponent<SpriteRenderer>().enabled = false;
         host.UnActiveAniamtion();
 
-        shuffledeck = true; //on function shuffledeck()
-        firstCard.Clear();  //reset list of card1,2,3
-        secondCard.Clear(); 
-        thirdCard.Clear();
+        shuffledeck = true; //on function shuffledeck()  
     }
 
-    IEnumerator AllofDelay()
-    {
-        PokdengUIManager.current.UItexttimer.enabled = true;
-        PokdengUIManager.current.UIbgtimer.enabled = true;
-        PokdengUIManager.current.UItexttimer.text = "6";
-        yield return new WaitForSeconds(1f);
-        PokdengUIManager.current.UItexttimer.text = "5";
-        yield return new WaitForSeconds(1f);
-        PokdengUIManager.current.UItexttimer.text = "4";
-        yield return new WaitForSeconds(1f);
-        PokdengUIManager.current.UItexttimer.text = "3";
-        yield return new WaitForSeconds(1f);
-        PokdengUIManager.current.UItexttimer.text = "2";
-        yield return new WaitForSeconds(1f);
-        PokdengUIManager.current.UItexttimer.text = "1";
-        yield return new WaitForSeconds(1f);
-        PokdengUIManager.current.UItexttimer.text = "0";
-        yield return new WaitForSeconds(1f);
+    
 
-        PokdengUIManager.current.UItexttimer.enabled = false;
-        PokdengUIManager.current.UIbgtimer.enabled = false;
 
-        drawCard = 3;
-    }
+  
+
 }
