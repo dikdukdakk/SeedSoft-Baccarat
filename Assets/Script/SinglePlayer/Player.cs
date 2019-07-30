@@ -79,7 +79,6 @@ public class Player : MonoBehaviour
     }
 
 
-    
     public void ShowUIText(int changeText)
     {
         switch (changeText)
