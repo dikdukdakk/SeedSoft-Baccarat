@@ -26,7 +26,6 @@ public class PokdengManagerBOT : MonoBehaviour
     bool shuffledeck;
     System.Random rnd = new System.Random();       // ตัวรันลำดับ random ใน list
     List<int> deck = new List<int>();              // จัด deck
-    int time;
 
     [Header("Host Properties")]
     public HostCard host;                          // อ้างอิง scirpt host
@@ -36,10 +35,12 @@ public class PokdengManagerBOT : MonoBehaviour
 
     void Start()
     {//Start
-        current = this;        // ให้ current สามารถอ้างอิงถึงสคิปนี้ได้
+        current = this;        //ให้ current สามารถอ้างอิงถึงสคิปนี้ได้
 
-        isGameStatus = true;   // เมื่อเริ่มเกม ให้สถานะเกมเท่ากับ true 
-        shuffledeck = true;
+        isGameStatus = true;   //เมื่อเริ่มเกม ให้สถานะเกมเท่ากับ true 
+        shuffledeck = true;    //เริ่มสับไพ่
+
+        GetmoneytoPlayer();
 
     }// end start
 
@@ -60,6 +61,19 @@ public class PokdengManagerBOT : MonoBehaviour
         StartCoroutine(RandomCard()); //เริ่มเกม
 
     }//end GameStatus
+
+    void GetmoneytoPlayer()
+    { 
+        for(int i=0; i < 9; i++)
+        {
+            if(player.ElementAt(4) != player.ElementAt(i))
+            { 
+                int randomMoney = Random.Range(0, 5);
+                player.ElementAt(i).totalMoney = BetMoney.current.money[randomMoney];
+            }
+
+        }
+    }
 
     void ShuffleDeck(bool newGame)
     {
@@ -225,7 +239,6 @@ public class PokdengManagerBOT : MonoBehaviour
 
 
     }//end RandomCard
-
     IEnumerator Calculate(int cntCard)
     {//Calculate
         if (cntCard == 2)
@@ -518,7 +531,6 @@ public class PokdengManagerBOT : MonoBehaviour
         }
 
     }//end Calculate
-
     void WinLose() //active winner gameObject
     {
         for(int i=0;i<9;i++) //player 9 people
@@ -526,14 +538,18 @@ public class PokdengManagerBOT : MonoBehaviour
             if (host.getRole >= 8 || player.ElementAt(i).getRole >= 8) //host get pok 8
             {
                 if (host.getRole == player.ElementAt(i).getRole) //player get pok 8 too
+                {
                     player.ElementAt(i).gameStatus = "Draw";  //this round is equal
+                }
                 else if (host.getRole < player.ElementAt(i).getRole) //player get pok 9
                 {
                     player.ElementAt(i).gameStatus = "Win";  //player is win
                     player.ElementAt(i).Winner.enabled = true; //active winner gameobject
                 }
                 else
+                {
                     player.ElementAt(i).gameStatus = "Lose"; //other condition player is lose
+                }
             }
 
             //host or player get normal type card
@@ -580,7 +596,6 @@ public class PokdengManagerBOT : MonoBehaviour
             }
         } 
     }
-
     IEnumerator NewGame()
     {
         PokdengUIManager.current.UItexttimer.enabled = true;
@@ -624,7 +639,7 @@ public class PokdengManagerBOT : MonoBehaviour
         host.X2X3.GetComponent<SpriteRenderer>().enabled = false;
         host.UnActiveAniamtion();
 
-        shuffledeck = true; //on function shuffledeck()  
+         shuffledeck = true; //on function shuffledeck()  
     }
 
     

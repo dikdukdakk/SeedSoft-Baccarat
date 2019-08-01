@@ -28,16 +28,6 @@ public class OpenCard : MonoBehaviour
         plane22.material = plane12.material;
     }
 
-    public void AnimCard2_1()
-    {
-        card2.GetComponent<Animator>().SetFloat("PlayandStop", 1f);
-    }
-
-    public void UnAnimCard2_1()
-    {
-        card2.GetComponent<Animator>().SetFloat("PlayandStop", 0f);
-    }
-
-
+   
 
 }

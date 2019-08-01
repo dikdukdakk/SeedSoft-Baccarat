@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/03_PokdengGame.unity
+- path: Assets/Scenes/MultiPlayer/TestNetWork.unity
   isLoaded: 1
   isActive: 1

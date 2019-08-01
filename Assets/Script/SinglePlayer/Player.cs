@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public Sprite photo;          //image user
     public float totalMoney;     //total money
     public int totalScore = 0;   //total score in one round
+    public int playerBet;        //1,2,3,4  => 10,20,50,100
     public string gameStatus;
 
     [Header("Card Properties")]
@@ -41,7 +42,8 @@ public class Player : MonoBehaviour
     {
         GetScore();   //calculate score
 
-        ShowUIText(getText); //show all text user
+        ShowUIScoreText(getText); //show all text user
+        ShowUIProfileText();
     }
 
     public void ActiveAniamtion(int cntCard) //Active Animation
@@ -79,7 +81,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void ShowUIText(int changeText)
+    public void ShowUIScoreText(int changeText)
     {
         switch (changeText)
         {
@@ -91,6 +93,11 @@ public class Player : MonoBehaviour
             case 8: score.text = "ป๊อก " + totalScore; break;
         }
     }
-    
+
+    public void ShowUIProfileText()
+    {
+        money.text = "" + totalMoney;
+    }
+
 
 }
