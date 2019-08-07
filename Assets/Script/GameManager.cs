@@ -2,28 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPunCallbacks
 {
-    public static GameManager current;
-    public int countPlayer;
+    [SerializeField]
+    GameObject playerPrefab;
+    public GameObject[] postoInstance;
 
-    void Awake()
+    public static GameManager instance;
+
+    #region Unity methods
+    private void Awake()
     {
-        current = this;
-        DontDestroyOnLoad(this.gameObject);
+        if (instance != null)
+            Destroy(this.gameObject);
+        else
+            instance = this;
     }
-
-    void Update()
-    {
-        RegisterPlayerPokdeng(countPlayer);
-    }
-
-    public static void RegisterPlayerPokdeng(int countPlayer)
-    {
-        if (countPlayer == 0)
-            return;
-    }
-
     
+    private void Start()
+    {
+        if (PhotonNetwork.IsConnected)
+        {
+            if(playerPrefab != null)
+            {
+                int randomPos = Random.Range(0,9);
+                PhotonNetwork.Instantiate(playerPrefab.name, postoInstance[randomPos].transform.position, postoInstance[randomPos].transform.rotation);
+            } 
+        }
+    }
+	#endregion
+
+    public override void OnLeftRoom()
+	{
+		SceneManager.LoadScene("01 _GameLauncher");
+	}
+
+	public override void OnJoinedRoom()
+    {
+        Debug.Log(PhotonNetwork.NickName + " joined to " + PhotonNetwork.CurrentRoom.Name);
+    }
+
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    {
+        Debug.Log(newPlayer.NickName + " joined to " + PhotonNetwork.CurrentRoom.PlayerCount);
+    }
 }

@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     }
     public void PlayPokdengGame()
     {
-        GameManager.current.countPlayer++;
+        //GameManager.current.countPlayer++;
         SceneManager.LoadScene("03_PokdengGame");
     }
 

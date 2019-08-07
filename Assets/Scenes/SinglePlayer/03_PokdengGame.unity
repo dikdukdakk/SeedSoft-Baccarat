@@ -901,6 +901,7 @@ MonoBehaviour:
   photo: {fileID: 0}
   totalMoney: 0
   totalScore: 0
+  playerBet: 0
   gameStatus: 
   cardPlayer:
   - {fileID: 408579473}
@@ -1328,6 +1329,7 @@ MonoBehaviour:
   photo: {fileID: 0}
   totalMoney: 0
   totalScore: 0
+  playerBet: 0
   gameStatus: 
   cardPlayer:
   - {fileID: 1452314714}
@@ -1450,6 +1452,7 @@ MonoBehaviour:
   photo: {fileID: 0}
   totalMoney: 0
   totalScore: 0
+  playerBet: 0
   gameStatus: 
   cardPlayer:
   - {fileID: 1095008092}
@@ -5101,6 +5104,7 @@ MonoBehaviour:
   photo: {fileID: 0}
   totalMoney: 0
   totalScore: 0
+  playerBet: 0
   gameStatus: 
   cardPlayer:
   - {fileID: 2017487790}
@@ -5223,6 +5227,7 @@ MonoBehaviour:
   photo: {fileID: 0}
   totalMoney: 0
   totalScore: 0
+  playerBet: 0
   gameStatus: 
   cardPlayer:
   - {fileID: 918529425}
@@ -7690,6 +7695,7 @@ MonoBehaviour:
   photo: {fileID: 0}
   totalMoney: 0
   totalScore: 0
+  playerBet: 0
   gameStatus: 
   cardPlayer:
   - {fileID: 422659253}
@@ -7891,6 +7897,7 @@ MonoBehaviour:
   photo: {fileID: 0}
   totalMoney: 0
   totalScore: 0
+  playerBet: 0
   gameStatus: 
   cardPlayer:
   - {fileID: 1884907368}
@@ -12530,6 +12537,7 @@ MonoBehaviour:
   photo: {fileID: 0}
   totalMoney: 0
   totalScore: 0
+  playerBet: 0
   gameStatus: 
   cardPlayer:
   - {fileID: 57843102}
@@ -13925,6 +13933,7 @@ MonoBehaviour:
   photo: {fileID: 0}
   totalMoney: 1000
   totalScore: 0
+  playerBet: 0
   gameStatus: 
   cardPlayer:
   - {fileID: 1937727246}
