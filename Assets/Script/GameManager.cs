@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
 	{
-		SceneManager.LoadScene("01 _GameLauncher");
+		SceneManager.LoadScene("01_GameLauncher");
 	}
 
 	public override void OnJoinedRoom()

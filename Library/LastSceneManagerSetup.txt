@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/MultiPlayer/TestNetWork.unity
+- path: Assets/Scenes/MultiPlayer/01_GameLauncher.unity
   isLoaded: 1
   isActive: 1
