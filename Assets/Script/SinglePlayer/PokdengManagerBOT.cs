@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;   
 using System.Linq;      // เพิ่มการทำงานให้ list สามารถอ้างอิงเชิงลึกได้
 
-
+/*
 public class PokdengManagerBOT : MonoBehaviour
 {
     public static PokdengManagerBOT current;       // ใช้ current อ้างอิงไปยังไฟล์อื่น
@@ -648,3 +648,4 @@ public class PokdengManagerBOT : MonoBehaviour
   
 
 }
+*/

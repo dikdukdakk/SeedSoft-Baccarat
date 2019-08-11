@@ -99,5 +99,5 @@ public class Player : MonoBehaviour
         money.text = "" + totalMoney;
     }
 
-
+    
 }

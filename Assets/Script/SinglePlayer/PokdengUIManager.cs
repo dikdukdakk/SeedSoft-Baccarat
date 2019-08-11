@@ -35,12 +35,12 @@ public class PokdengUIManager : MonoBehaviour
 
     public void BTPlus3()
     {
-        PokdengManagerBOT.current.player.ElementAt(4).requestCard = true;
+       // PokdengManagerBOT.current.player.ElementAt(4).requestCard = true;
     }
 
     public void BTPass()
     {
-        PokdengManagerBOT.current.player.ElementAt(4).requestCard = false;
+       // PokdengManagerBOT.current.player.ElementAt(4).requestCard = false;
     }
 
     

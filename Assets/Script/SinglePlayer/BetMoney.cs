@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+/*
 public class BetMoney : MonoBehaviour
 {
     public static BetMoney current;
@@ -30,3 +30,4 @@ public class BetMoney : MonoBehaviour
         
     }
 }
+*/

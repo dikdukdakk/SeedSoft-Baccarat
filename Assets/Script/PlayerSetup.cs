@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class PlayerSetup : MonoBehaviourPunCallbacks
 {
-    [SerializeField]
-    TextMesh textName;
+    //[SerializeField]
+    public TextMesh textName;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,8 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     void SetPlayerUI()
     {
         if(textName != null)
-            textName.text = photonView.Owner.NickName;
+          //  textName.text = photonView.Owner.NickName;
+
+        
     }
 }

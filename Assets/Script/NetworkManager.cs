@@ -7,25 +7,39 @@ using UnityEngine.UI;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+    public static NetworkManager toStatic;
+
     [Header("Firsttime Login")]
     public GameObject EnterGamePanel;
     public InputField playerNameInput;
+    public Text playerName;
+    //public Image profile;
+    
 
     [Header("Connection Panel & Lobby Panel")]
     public GameObject ConnectionStatusPanel;
     public GameObject LobbyPanel;
 
+
     [Header("Create Room UI Panel")]
     public GameObject CreateRoom;
     public InputField roomNameInputField;
     public InputField roomPasswordInputField;
+    public bool playertoHost; //change status player to be host
+ 
 
     [Header("List Room UI Panel")]
     public GameObject ListRoom;
     public GameObject roomListEntryPrefab;
     public GameObject roomListParent;
+    public GameObject playerListPrefab;
+    public GameObject playerlistContent;
+
+    
+
     private Dictionary<string, RoomInfo> cachedRoomList;
-    private Dictionary<string, GameObject> roomListGameObject; 
+    private Dictionary<string, GameObject> roomListGameObject;
+    private Dictionary<int, GameObject> playerListGameObjects;
 
 
     #region Unity Methods
@@ -35,7 +49,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     }
 
     private void Start()
-    { 
+    {
+        toStatic = this;
+        playertoHost = false;
+
         ActivatePanel(EnterGamePanel.name);
 
         cachedRoomList = new Dictionary<string, RoomInfo>();
@@ -47,13 +64,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log(PhotonNetwork.NickName +  " is Connected to photon sever.");
-        ActivatePanel(ConnectionStatusPanel.name);
+        //ActivatePanel(ConnectionStatusPanel.name);
         ActivatePanel(LobbyPanel.name);
     }
 
     public override void OnConnected()
     {
         Debug.Log("Connected to Internect");
+        ActivatePanel(ConnectionStatusPanel.name);
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -69,18 +87,73 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log(PhotonNetwork.CurrentRoom.Name + " is created Room");
+        
     }
 
     public override void OnJoinedRoom()
     {
         Debug.Log(PhotonNetwork.NickName + " join to " + PhotonNetwork.CurrentRoom.Name);
-        PhotonNetwork.LoadLevel("02_Pokdeng"); //Load pokdeng scene
+        ActivatePanel(LobbyPanel.name);
+        ActivatePanel(GameManager.toStatic.PokdengGame.name);
+
+        if (playerListGameObjects == null)
+            playerListGameObjects = new Dictionary<int, GameObject>();
+
+        foreach (Photon.Realtime.Player _player in PhotonNetwork.PlayerList)
+        {
+            GameObject playerListGameObject = Instantiate(playerListPrefab);
+            playerListGameObject.transform.SetParent(playerlistContent.transform);
+            playerListGameObject.transform.localScale = Vector3.one;
+
+            playerListGameObject.transform.Find("Text-Name").GetComponent<Text>().text = _player.NickName;
+
+            if (_player.ActorNumber == PhotonNetwork.LocalPlayer.ActorNumber)
+                playerListGameObject.transform.Find("Text-Status").GetComponent<Text>().text = "YOU";
+            else
+                playerListGameObject.transform.Find("Text-Status").GetComponent<Text>().text = "Other";
+
+            playerListGameObjects.Add(_player.ActorNumber, playerListGameObject);
+
+        }
     }
 
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
-        base.OnPlayerEnteredRoom(newPlayer);
-        Debug.Log(newPlayer.NickName + " joined to" + PhotonNetwork.CurrentRoom.Name + " " + PhotonNetwork.CurrentRoom.PlayerCount);
+        Debug.Log(newPlayer.NickName + " joined to " + PhotonNetwork.CurrentRoom.PlayerCount);
+
+       
+
+        GameObject playerListGameObject = Instantiate(playerListPrefab);
+        playerListGameObject.transform.SetParent(playerlistContent.transform);
+        playerListGameObject.transform.localScale = Vector3.one;
+
+        playerListGameObject.transform.Find("Text-Name").GetComponent<Text>().text = newPlayer.NickName;
+
+        if (newPlayer.ActorNumber == PhotonNetwork.LocalPlayer.ActorNumber)
+            playerListGameObject.transform.Find("Text-Status").GetComponent<Text>().text = "YOU";
+        else
+            playerListGameObject.transform.Find("Text-Status").GetComponent<Text>().text = "Other";
+
+        playerListGameObjects.Add(newPlayer.ActorNumber, playerListGameObject);
+
+        
+    }
+
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
+    {
+        Destroy(playerListGameObjects[otherPlayer.ActorNumber].gameObject);
+        playerListGameObjects.Remove(otherPlayer.ActorNumber);
+    }
+
+    public override void OnLeftRoom()
+    {
+
+    }
+
+    public override void OnLeftLobby()
+    {
+        ClearRoomListView();
+        cachedRoomList.Clear();
     }
 
 
@@ -92,6 +165,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
 
         PhotonNetwork.JoinRoom(_roomName);
+        
+
     }
 
     void ClearRoomListView()
@@ -114,7 +189,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         ConnectionStatusPanel.SetActive(panelActivated.Equals(ConnectionStatusPanel.name));
         LobbyPanel.SetActive(panelActivated.Equals(LobbyPanel.name));
         CreateRoom.SetActive(panelActivated.Equals(CreateRoom.name));
-        
+
+        GameManager.toStatic.PokdengGame.SetActive(panelActivated.Equals(GameManager.toStatic.PokdengGame.name));
+
+        if (LobbyPanel.active)
+            OnShowRoom();
+
+
     }
 
     public void ConnectToPhotonSever()
@@ -126,22 +207,19 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             ActivatePanel(EnterGamePanel.name);
         }
     }
-
-   //public void JoinRandomRoom()
-   // {
-   //     PhotonNetwork.JoinRandomRoom();
-   // }
-
     #endregion
 
     #region UI Button Callbacks
     public void OnEnterFirstNameClicked()
     {
-        string playerName = playerNameInput.text;
-        if (!string.IsNullOrEmpty(playerName))
+        string _playerName = playerNameInput.text;
+        if (!string.IsNullOrEmpty(_playerName))
         {
-            PhotonNetwork.LocalPlayer.NickName = playerName;
+            PhotonNetwork.LocalPlayer.NickName = _playerName;
             PhotonNetwork.ConnectUsingSettings();
+
+            playerName.text = _playerName;
+
         }
         else
             Debug.Log("Playername is invalid!");
@@ -150,17 +228,27 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public void OnEnterCreateRoomClicked()
     {
         string roomName = roomNameInputField.text;
-        if (string.IsNullOrEmpty(roomName))
+		if (!string.IsNullOrEmpty(roomName) && roomNameInputField.text != null) //User have to fill room name
         {
-            roomName = "Room" + Random.Range(0, 10000);
+            roomName = "" + Random.Range(0, 10000) + " " + roomName;
+            
+            RoomOptions roomOptions = new RoomOptions();
+            roomOptions.MaxPlayers = 10; //set count of play in room
+            roomOptions.IsOpen = true;    //on off room
+            roomOptions.IsVisible = true;
+
+            playertoHost = true;
+
+            PhotonNetwork.CreateRoom(roomName, roomOptions);
+
+            ActivatePanel(CreateRoom.name);
+            ActivatePanel(GameManager.toStatic.PokdengGame.name);
+       
         }
+        else
+            Debug.Log("Room Name is empty");
 
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 9; //set count of play in room
-        roomOptions.IsOpen = true;    //on off room
-        roomOptions.IsVisible = true;
-
-        PhotonNetwork.CreateRoom(roomName, roomOptions);
+        
     }
 
     public void OnEnterCancelCreateRoomClicked()
@@ -177,7 +265,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             
         }
         ListRoom.SetActive(true) ;
-        //ActivatePanel(LobbyPanel.name);
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -195,15 +282,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             }
             else
             {
-                if(cachedRoomList.ContainsKey(room.Name)) //update cachedRoom list
-                {
+                if(cachedRoomList.ContainsKey(room.Name)) //update cachedRoom list      
                     cachedRoomList[room.Name] = room;
-                }
                 else
-                {
                     cachedRoomList.Add(room.Name, room); // add the new room to the cached room
-                    
-                }
                 
             }
             
@@ -215,8 +297,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             roomListEntry.transform.SetParent(roomListParent.transform);
             roomListEntry.transform.localScale = Vector3.one;
 
-            roomListEntry.transform.Find("RoomNameText").GetComponent<Text>().text = room.Name;
-            //roomListParent.transform.Find("Text-Number").GetComponent<Text>().text = room.;
+            roomListEntry.transform.Find("Text-Name").GetComponent<Text>().text = room.Name;
+            roomListEntry.transform.Find("Text-CountPlayer").GetComponent<Text>().text = room.PlayerCount + " / " + room.MaxPlayers;
             roomListEntry.transform.Find("BT-JoinRoom").GetComponent<Button>().onClick.AddListener(() => OnJoinRoomButtonClicked(room.Name));
 
             roomListGameObject.Add(room.Name, roomListEntry);
