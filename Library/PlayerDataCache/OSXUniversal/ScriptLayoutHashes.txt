@@ -5,7 +5,7 @@ SceneListBegin?
 Assets/Scenes/MultiPlayer/01_GameLauncher.unity
 Assets/Scenes/MultiPlayer/02_Pokdeng.unity
 SceneListEnd?
-72225e9198959a43058aa96fcccfbf2a Assembly-CSharp.dll:.GameManager
+6d31c8444d1387146b3962373202e667 Assembly-CSharp.dll:.GameManager
 80d2851602cb4bcb6f559596c5eb955b Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Cockpit.PlayerListCell
 71bb6a6b6c8f052f948db64c7dd3ca4f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.PunTeams
 74494c459d8da1b3c2f0349d1d8534aa Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Cockpit.DocLinkButton
@@ -31,7 +31,7 @@ ee1dba1a186ac062d564e9eb73a1c56f PhotonUnityNetworking.Utilities.dll:Photon.Pun.
 c656dcc13ae391b68d594cc8f9c590b0 Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Cockpit.CurrentRoomMaxPlayersProperty
 3ba023cd67d72cace33969ab863e0fd4 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.PhotonStatsGui
 8ae3331b163cc121825eeed3975d6c4d Assembly-CSharp-firstpass.dll:.ChatGui
-d2c532e5d2c376532a97f7f46ad93cd5 Assembly-CSharp.dll:.PKManager
+635d60fcbcbb257faf97090da0dbe0d6 Assembly-CSharp.dll:.PKManager
 74c875e0f15c48e0a55f06093aa93e15 Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Cockpit.LayoutElementMatchSize
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 bd4c580f02d31d4be48d7a47440392c4 Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.PunBasics.PlayerAnimatorManager
@@ -207,6 +207,7 @@ c380fc5ce39348202e0a58fe3e243a74 Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.P
 4fe8955e1c662935371b0936cafbb89b Assembly-CSharp-firstpass.dll:Photon.Chat.UtilityScripts.TextButtonTransition
 4fe8955e1c662935371b0936cafbb89b PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.TextButtonTransition
 e37675de1ea5e56da90f5600d33587bd Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Cockpit.ToggleExpand
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.HRManager
 cba6cca6bb3290c4c00d709cf63843db Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Cockpit.NickNameField
 4d9f3379d9846c3f857ff61792c5ee3b Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.PunBasics.PlayerUI
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -271,7 +272,7 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 48804c7edfd2998cdab1bf456d8dbfd0 Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Cockpit.PlayerListView
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Procedural.ProceduralController
 c5fd97cc10b89deaf7c60af66a6b0d5a PhotonRealtime.dll:Photon.Realtime.SupportLogger
-198c9f17b6b62176822960dff76b232f Assembly-CSharp.dll:.NetworkManager
+a50f628de2fd61f069769557cee32e42 Assembly-CSharp.dll:.NetworkManager
 3f600ad0f750f59238a91f7513b927c1 PhotonUnityNetworking.dll:Photon.Pun.PhotonTransformViewClassic
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Cockpit.CrcCheckToggle
 71bb6a6b6c8f052f948db64c7dd3ca4f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.OnPointerOverTooltip
@@ -308,5 +309,5 @@ c8283c7732e3b6aa70d28f1fed4430ca PhotonUnityNetworking.Utilities.dll:Photon.Pun.
 f07d654754d37f82934d9057c671e9cc Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Cockpit.Forms.UserIdUiForm
 c656dcc13ae391b68d594cc8f9c590b0 Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Cockpit.CountOfRoomsProperty
 f0c4eb24258257daca58a9939f0894d2 Assembly-CSharp-firstpass.dll:Photon.Pun.Demo.Asteroids.LobbyTopPanel
-3d4e84faa8bc7d52b89a58e4f6c38cdb Assembly-CSharp.dll:.PlayerSetup
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.HRManager
+d8105f6cea7cfd8ec3d468a271860cf1 Assembly-CSharp.dll:.PlayerSetup
+5cb3b9f18ec70389945dc6b7820193ff Assembly-CSharp.dll:.PlayerPosition

@@ -7,66 +7,74 @@ using Photon.Realtime;
 
 public class PKManager : MonoBehaviourPunCallbacks
 {
-    [Header("Player & Host Position")]
-    public GameObject playerPrefab;
-    public GameObject[] playerPosition;
-    public GameObject hostPosition;
     bool playerHost;
-    bool playerLogin;
-    
+    public bool playerEnterRoom;
+    int playerCount;
+
     [Header("Host & Player")]
+    public List<GameObject> playerSit = new List<GameObject>();
     public GameObject host;
     public List<GameObject> player = new List<GameObject>();
 
-    public static PKManager instance;
+   // private Dictionary<int, GameObject> playerlistGameObject;
+
+   
+    public static PKManager toStatic;
 
     #region Unity methods
     private void Awake()
     {
-        if (instance != null)
+        if (toStatic != null)
             Destroy(this.gameObject);
         else
-            instance = this;
+            toStatic = this;
     }
 
+    
     private void Start()
     {
-        playerHost = NetworkManager.toStatic.playertoHost;
         //playerPrefab = GameManager.toStatic.playerPrefab;
+        playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+
 
         if (PhotonNetwork.IsConnected)
         {
-            if (GameManager.toStatic.playerPrefab != null)
-            {
+            
+            //if (playerPrefab != null)
+            /*{
                 //set host position
-                if (playerHost)
+                if (PhotonNetwork.LocalPlayer.IsMasterClient)
                 {
-                    host = PhotonNetwork.Instantiate(GameManager.toStatic.playerPrefab.name, hostPosition.transform.position, hostPosition.transform.rotation);
+                    host = PhotonNetwork.Instantiate(playerPrefab.name, hostPosition.transform.position, hostPosition.transform.rotation);
                     host.gameObject.tag = "Host";
                 }
                 //set player position 
                 else
                 {
-                    PhotonNetwork.Instantiate(GameManager.toStatic.playerPrefab.name, playerPosition[0].transform.position, playerPosition[0].transform.rotation);
-                    
-                }  
-            }
+                    player.Add(PhotonNetwork.Instantiate(playerPrefab.name, playerPosition[playerCount - 2].transform.position,
+                    playerPosition[playerCount-2].transform.rotation));  
+                }
 
+               
+                playerEnterRoom = true;
+                */
+           // }
+
+           // if(PhotonNetwork.LocalPlayer.)
+            
         }
 
         
     }
 
-   
+    
 
-    private void Update()
-    {
-        
-    }
+
     #endregion
 
 
 
+   
 
 
 }

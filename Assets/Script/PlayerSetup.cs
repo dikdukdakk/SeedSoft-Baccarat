@@ -6,29 +6,13 @@ using UnityEngine.UI;
 
 public class PlayerSetup : MonoBehaviourPunCallbacks
 {
-    //[SerializeField]
-    public TextMesh textName;
+    [Header("UI References")]
+    public TextMesh PlayerNameText;
+    public SpriteRenderer PlayerImage;
     
-
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize(int playerID,string playerName)
     {
-        if(photonView.IsMine)
-        {
-            
-        }
-        else
-        {
-
-        }
-
-        SetPlayerUI();
-    }
-
-    void SetPlayerUI()
-    {
-        if(textName != null)
-          //  textName.text = photonView.Owner.NickName;
+        PlayerNameText.text = playerName;
 
         
     }
