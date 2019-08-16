@@ -3091,6 +3091,11 @@ namespace Photon.Pun
                 }
             }
         }
-        #endif
+
+        public static void Instantiate(string name)
+        {
+            throw new NotImplementedException();
+        }
+#endif
     }
 }

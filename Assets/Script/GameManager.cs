@@ -7,9 +7,9 @@ using Photon.Pun;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [Header("Game Scene")]
-    public GameObject playerPrefab;
-    public GameObject PokdengGame;
-    public GameObject PokdengStart;
+    //public GameObject playerPrefab;
+    //public GameObject PokdengGame;
+    //public GameObject PokdengStart;
     //public GameObject HiroGame;
 
 

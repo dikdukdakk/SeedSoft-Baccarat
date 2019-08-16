@@ -702,7 +702,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -723,10 +723,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 4b58a235-6f86-4263-ae30-f2b1d1598419
+  cloudProjectId: c13d4771-9cef-445f-8a79-c1128cde8d5f
   framebufferDepthMemorylessMode: 0
-  projectName: Project-CardGame
-  organizationId: unity_-oqz13bgjhd_sg
+  projectName: Project-CardGame (1)
+  organizationId: dy_rws
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

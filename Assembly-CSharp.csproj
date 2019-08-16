@@ -60,12 +60,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\HRManager.cs" />
-    <Compile Include="Assets\PlayerPosition.cs" />
+    <Compile Include="Assets\ChatManager.cs" />
+    <Compile Include="Assets\FixScreen.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\NetworkManager.cs" />
     <Compile Include="Assets\Script\PKManager.cs" />
     <Compile Include="Assets\Script\PlayerSetup.cs" />
+    <Compile Include="Assets\Script\ShuffleDeck.cs" />
     <Compile Include="Assets\Script\SinglePlayer\BetMoney.cs" />
     <Compile Include="Assets\Script\SinglePlayer\HostCard.cs" />
     <Compile Include="Assets\Script\SinglePlayer\OpenCard.cs" />

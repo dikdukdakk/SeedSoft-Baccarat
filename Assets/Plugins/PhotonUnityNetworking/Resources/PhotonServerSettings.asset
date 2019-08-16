@@ -32,5 +32,12 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - RandomCard
+  - GetCard
+  - cardtoPlayer
+  - SetHostCard
+  - SetPlayerCard
+  - OnShuffleDeck
+  - SendMassage
   DisableAutoOpenWizard: 1
   ShowSettings: 1
