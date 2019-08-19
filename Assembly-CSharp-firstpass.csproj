@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4962182F-ED7A-B408-5981-E9E8994F790A}</ProjectGuid>
+    <ProjectGuid>{B17FBAE0-AD77-AAB8-EA4C-FFC38993538E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -77,19 +77,19 @@
     <None Include="Assets\Plugins\Photon\PhotonUnityNetworking\readme.txt" />
     <None Include="Assets\Plugins\Photon\PhotonUnityNetworking\changelog.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2018.3.14f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -296,19 +296,19 @@
       <HintPath>/Applications/Unity/Hub/Editor/2018.3.14f1/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Assets/Plugins/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Assets/Plugins/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Hub/Editor/2018.3.14f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -658,47 +658,43 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
-      <Project>{DF6B16C1-5977-4882-23D4-FC2130D73EB2}</Project>
+      <Project>{82A8C3CD-0B64-F355-7AB2-4AD2AADE9E42}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
-      <Project>{A9F12C03-8C02-2F80-ED0F-26A3C95A68E0}</Project>
-      <Name>PunDemos.DemoHubEditor</Name>
-    </ProjectReference>
     <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
-      <Project>{564493ED-56F8-F1BF-AF92-AA6D3CD85472}</Project>
+      <Project>{D20F94EF-EC8B-6B37-E585-8ADEDA74A66F}</Project>
       <Name>PunDemos.DemoSlotcarEditor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Demos.csproj">
-      <Project>{7A1BB0F8-1142-3940-600A-E75C0DCC5CBA}</Project>
+      <Project>{AC252F95-73F2-2884-8C53-080A4E009F08}</Project>
       <Name>PhotonUnityNetworking.Demos</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
-      <Project>{C29A48B5-12CE-9212-78E7-40DC3812D065}</Project>
+      <Project>{E29B2D1F-F4AE-960B-A552-8557FCF2B230}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonWebSocket.csproj">
-      <Project>{EEB2D7F1-189E-9817-D209-4F1515565BBA}</Project>
+      <Project>{D2588D6D-A45B-A4BC-5D6F-86029B723EEC}</Project>
       <Name>PhotonWebSocket</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{2AECDBA8-8CB2-32BB-68BE-E90292B806A2}</Project>
+      <Project>{6A0C73E4-AEE6-F434-EF40-1B182F6668D8}</Project>
       <Name>PhotonRealtime</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.csproj">
-      <Project>{DCF173E9-C62D-9B5E-4D60-D5347C7A29DD}</Project>
+      <Project>{BF997C90-3049-6933-A9EC-F759050D8580}</Project>
       <Name>PhotonUnityNetworking</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonChat.csproj">
-      <Project>{109D5537-F17D-4218-8DEB-68E91EB92A39}</Project>
+      <Project>{D6B8C752-EE8C-E64F-82C5-2BFCE966CF9F}</Project>
       <Name>PhotonChat</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
-      <Project>{7BB50FDE-82D9-AF2B-2A9F-7547C9890B16}</Project>
+      <Project>{68F08EBC-A2D0-BE67-128F-A53D809BEC66}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
-      <Project>{1FBE1FDC-BBD6-6E43-99E0-B452C0E8CDF6}</Project>
+      <Project>{6A6D41F1-D2A5-1A9F-2847-9C3AD5F93A4A}</Project>
       <Name>PhotonUnityNetworking.Editor</Name>
     </ProjectReference>
   </ItemGroup>

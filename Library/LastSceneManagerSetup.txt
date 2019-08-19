@@ -1,10 +1,4 @@
 sceneSetups:
 - path: Assets/Scenes/MultiPlayer/01_GameLauncher.unity
-  isLoaded: 0
-  isActive: 0
-- path: Assets/Scenes/MultiPlayer/01_GameLauncher.unity
-  isLoaded: 0
-  isActive: 0
-- path: Assets/Scenes/MultiPlayer/01_GameLauncher.unity
   isLoaded: 1
   isActive: 1

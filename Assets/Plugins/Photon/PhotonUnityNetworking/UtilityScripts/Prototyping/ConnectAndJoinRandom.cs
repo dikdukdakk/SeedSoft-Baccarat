@@ -84,39 +84,36 @@ namespace Photon.Pun.UtilityScripts
     }
 
 
-    //#if UNITY_EDITOR
-    //[CanEditMultipleObjects]
-    //[CustomEditor(typeof(ConnectAndJoinRandom), true)]
-    //public class ConnectAndJoinRandomInspector : Editor
-    //{
-    //    void OnEnable() { EditorApplication.update += Update; }
-    //    void OnDisable() { EditorApplication.update -= Update; }
+#if UNITY_EDITOR
+[CanEditMultipleObjects]
+[CustomEditor(typeof(ConnectAndJoinRandom), true)]
+public class ConnectAndJoinRandomInspector : Editor
+{
+	void OnEnable() { EditorApplication.update += Update; }
+	void OnDisable() { EditorApplication.update -= Update; }
 
-    //    bool isConnectedCache = false;
+	bool IsConnectedCache = false;
 
-    //    void Update()
-    //    {
-    //        if (this.isConnectedCache != PhotonNetwork.IsConnected)
-    //        {
-    //            this.Repaint();
-    //        }
-    //    }
+	void Update()
+	{
+		if (IsConnectedCache != PhotonNetwork.IsConnected)
+		{
+			Repaint ();
+		}
+	}
 
-    //    public override void OnInspectorGUI()
-    //    {
-    //        this.isConnectedCache = !PhotonNetwork.IsConnected;
+    public override void OnInspectorGUI()
+    {
+        this.DrawDefaultInspector(); // Draw the normal inspector
 
-
-    //        this.DrawDefaultInspector(); // Draw the normal inspector
-
-    //        if (Application.isPlaying && !PhotonNetwork.IsConnected)
-    //        {
-    //            if (GUILayout.Button("Connect"))
-    //            {
-    //                ((ConnectAndJoinRandom)this.target).ConnectNow();
-    //            }
-    //        }
-    //    }
-    //}
-    //#endif
+        if (Application.isPlaying && !PhotonNetwork.IsConnected)
+        {
+            if (GUILayout.Button("Connect"))
+            {
+				((ConnectAndJoinRandom)this.target).ConnectNow ();
+            }
+        }
+    }
+}
+#endif
 }

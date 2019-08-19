@@ -8,7 +8,7 @@ public class EditProfile : MonoBehaviour
 {
     [Header("Profile-Name")]
     public InputField playerNameInput;
-    public Text playerName;
+    //public Text playerName;
 
     [Header("Profile-Image")]
     public GameObject SelectImagePanel;

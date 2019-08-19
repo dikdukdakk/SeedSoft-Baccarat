@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7A1BB0F8-1142-3940-600A-E75C0DCC5CBA}</ProjectGuid>
+    <ProjectGuid>{AC252F95-73F2-2884-8C53-080A4E009F08}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>PhotonUnityNetworking.Demos</AssemblyName>
@@ -410,25 +410,25 @@
       <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Assets/Plugins/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Assets/Plugins/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Hub/Editor/2018.3.14f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -778,15 +778,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{2AECDBA8-8CB2-32BB-68BE-E90292B806A2}</Project>
+      <Project>{6A0C73E4-AEE6-F434-EF40-1B182F6668D8}</Project>
       <Name>PhotonRealtime</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.csproj">
-      <Project>{DCF173E9-C62D-9B5E-4D60-D5347C7A29DD}</Project>
+      <Project>{BF997C90-3049-6933-A9EC-F759050D8580}</Project>
       <Name>PhotonUnityNetworking</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
-      <Project>{C29A48B5-12CE-9212-78E7-40DC3812D065}</Project>
+      <Project>{E29B2D1F-F4AE-960B-A552-8557FCF2B230}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
     </ProjectReference>
   </ItemGroup>

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7BB50FDE-82D9-AF2B-2A9F-7547C9890B16}</ProjectGuid>
+    <ProjectGuid>{68F08EBC-A2D0-BE67-128F-A53D809BEC66}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>PhotonUnityNetworking.Utilities.Culling.Editor</AssemblyName>
@@ -308,25 +308,25 @@
       <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Assets/Plugins/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Assets/Plugins/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat-master/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>/Users/nuttaponyumin/Desktop/SeedSoft-Baccarat/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Hub/Editor/2018.3.14f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -685,7 +685,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
-      <Project>{C29A48B5-12CE-9212-78E7-40DC3812D065}</Project>
+      <Project>{E29B2D1F-F4AE-960B-A552-8557FCF2B230}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
     </ProjectReference>
   </ItemGroup>

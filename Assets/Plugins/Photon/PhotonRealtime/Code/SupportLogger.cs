@@ -9,8 +9,6 @@
 // <author>developer@photonengine.com</author>
 // ----------------------------------------------------------------------------
 
-
-
 #if UNITY_4_7 || UNITY_5 || UNITY_5_3_OR_NEWER
 #define SUPPORTED_UNITY
 #endif
@@ -49,15 +47,12 @@ namespace Photon.Realtime
         /// <summary>
         /// Toggle to enable or disable traffic statistics logging.
         /// </summary>
-        public bool LogTrafficStats = true;
+        public bool LogTrafficStats;
         private bool loggedStillOfflineMessage;
 
         private LoadBalancingClient client;
 
         private Stopwatch startStopwatch;
-
-        private int pingMax;
-        private int pingMin;
 
         /// <summary>
         /// Photon client to log information and statistics from.
@@ -89,7 +84,10 @@ namespace Photon.Realtime
                 this.startStopwatch.Start();
             }
 
-            this.InvokeRepeating("TrackValues", 0.5f, 0.5f);
+            if (this.LogTrafficStats)
+            {
+                this.InvokeRepeating("LogStats", 10, 10);
+            }
         }
 
         protected void OnApplicationPause(bool pause)
@@ -103,25 +101,6 @@ namespace Photon.Realtime
         }
         #endif
 
-        public void StartLogStats()
-        {
-            #if SUPPORTED_UNITY
-            this.InvokeRepeating("LogStats", 10, 10);
-            #else
-            Debug.Log("Not implemented for non-Unity projects.");
-            #endif
-        }
-
-        public void StopLogStats()
-        {
-            #if SUPPORTED_UNITY
-            this.CancelInvoke("LogStats");
-            #else
-            Debug.Log("Not implemented for non-Unity projects.");
-            #endif
-        }
-
-
         private string GetFormattedTimestamp()
         {
             if (this.startStopwatch == null)
@@ -132,22 +111,6 @@ namespace Photon.Realtime
             return string.Format("[{0}.{1}]", this.startStopwatch.Elapsed.Seconds, this.startStopwatch.Elapsed.Milliseconds);
         }
 
-
-        // called via InvokeRepeatedly
-        private void TrackValues()
-        {
-            int currentRtt = this.client.LoadBalancingPeer.RoundTripTime;
-            if (currentRtt > this.pingMax)
-            {
-                this.pingMax = currentRtt;
-            }
-            if (currentRtt < this.pingMin)
-            {
-                this.pingMin = currentRtt;
-            }
-        }
-
-
         /// <summary>
         /// Debug logs vital traffic statistics about the attached Photon Client.
         /// </summary>
@@ -155,12 +118,17 @@ namespace Photon.Realtime
         {
             if (this.client.State == ClientState.PeerCreated)
             {
+                if (!this.loggedStillOfflineMessage)
+                {
+                    this.loggedStillOfflineMessage = true;
+                    Debug.Log(this.GetFormattedTimestamp() + " SupportLogger Photon Client is not connected yet: this logger won't be able to capture the state.");
+                }
                 return;
             }
 
             if (this.LogTrafficStats)
             {
-                Debug.Log(this.GetFormattedTimestamp() + " SupportLogger " + this.client.LoadBalancingPeer.VitalStatsToString(false) + " Ping min/max: " + this.pingMin + "/" + this.pingMax);
+                Debug.Log(this.GetFormattedTimestamp() + " SupportLogger " + this.client.LoadBalancingPeer.VitalStatsToString(false));
             }
         }
 
@@ -186,15 +154,11 @@ namespace Photon.Realtime
         public void OnConnected()
         {
             Debug.Log(this.GetFormattedTimestamp() + " SupportLogger OnConnected().");
-            this.pingMax = 0;
-            this.pingMin = this.client.LoadBalancingPeer.RoundTripTime;
             this.LogBasics();
 
             if (this.LogTrafficStats)
             {
-                this.client.LoadBalancingPeer.TrafficStatsEnabled = false;
-                this.client.LoadBalancingPeer.TrafficStatsEnabled = true;
-                this.StartLogStats();
+                this.client.EnableLobbyStatistics = true;
             }
         }
 
@@ -249,11 +213,8 @@ namespace Photon.Realtime
 
 		public void OnDisconnected(DisconnectCause cause)
         {
-            this.StopLogStats();
-
 			Debug.Log(this.GetFormattedTimestamp() + " SupportLogger OnDisconnected(" + cause + ").");
 			this.LogBasics();
-            this.LogStats();
         }
 
         public void OnRegionListReceived(RegionHandler regionHandler)
@@ -308,7 +269,7 @@ namespace Photon.Realtime
         }
 
 
-#if !SUPPORTED_UNITY
+        #if !SUPPORTED_UNITY
         private static class Debug
         {
             public static void Log(string msg)
@@ -324,6 +285,6 @@ namespace Photon.Realtime
                 System.Diagnostics.Debug.WriteLine(msg);
             }
         }
-#endif
+        #endif
     }
 }
