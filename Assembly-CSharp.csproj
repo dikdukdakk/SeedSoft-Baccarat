@@ -60,13 +60,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ChatManager.cs" />
-    <Compile Include="Assets\FixScreen.cs" />
-    <Compile Include="Assets\Script\GameManager.cs" />
-    <Compile Include="Assets\Script\NetworkManager.cs" />
-    <Compile Include="Assets\Script\PKManager.cs" />
-    <Compile Include="Assets\Script\PlayerSetup.cs" />
-    <Compile Include="Assets\Script\ShuffleDeck.cs" />
+    <Compile Include="Assets\Script\AllPage\EditLobby.cs" />
+    <Compile Include="Assets\Script\AllPage\EditProfile.cs" />
+    <Compile Include="Assets\Script\GameManager\FixScreen.cs" />
+    <Compile Include="Assets\Script\GameManager\GameManager.cs" />
+    <Compile Include="Assets\Script\GameManager\MultiplayPKGame.cs" />
+    <Compile Include="Assets\Script\GameManager\NetworkManager.cs" />
+    <Compile Include="Assets\Script\GameManager\PKManager.cs" />
+    <Compile Include="Assets\Script\GameManager\ShuffleDeck.cs" />
+    <Compile Include="Assets\Script\Player\ChatManager.cs" />
+    <Compile Include="Assets\Script\Player\PlayerSetup.cs" />
     <Compile Include="Assets\Script\SinglePlayer\BetMoney.cs" />
     <Compile Include="Assets\Script\SinglePlayer\HostCard.cs" />
     <Compile Include="Assets\Script\SinglePlayer\OpenCard.cs" />
@@ -662,6 +665,18 @@
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
       <Project>{DF6B16C1-5977-4882-23D4-FC2130D73EB2}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
+      <Project>{A9F12C03-8C02-2F80-ED0F-26A3C95A68E0}</Project>
+      <Name>PunDemos.DemoHubEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
+      <Project>{564493ED-56F8-F1BF-AF92-AA6D3CD85472}</Project>
+      <Name>PunDemos.DemoSlotcarEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="PhotonUnityNetworking.Demos.csproj">
+      <Project>{7A1BB0F8-1142-3940-600A-E75C0DCC5CBA}</Project>
+      <Name>PhotonUnityNetworking.Demos</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
       <Project>{C29A48B5-12CE-9212-78E7-40DC3812D065}</Project>

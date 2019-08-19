@@ -2215,10 +2215,7 @@ namespace Photon.Pun
         {
             if (PhotonNetwork.LogLevel >= PunLogLevel.Informational)
             {
-                foreach (Region region in regionHandler.EnabledRegions)
-                {
-                    Debug.Log(region.ToString());
-                }
+                Debug.Log(regionHandler.GetResults());
             }
 
             _cachedRegionHandler = regionHandler;

@@ -1031,9 +1031,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf1b5ef6947c43fbaa57c3212294112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photonView: {fileID: 6993748582973352235}
   PlayerNameText: {fileID: 2775414717170978700}
   PlayerImage: {fileID: 2775414718219509722}
-  rollCard: 0
   FrontCard:
   - {fileID: 2775414718691356421}
   - {fileID: 2775414718689025738}
@@ -1042,7 +1042,6 @@ MonoBehaviour:
   - {fileID: 2775414718207398593}
   - {fileID: 2775414718205217254}
   - {fileID: 2775414717621727182}
-  photonView: {fileID: 6993748582973352235}
   firstCard: 0
   secondCard: 0
   thirdCard: 0
@@ -1246,7 +1245,7 @@ SpriteRenderer:
   m_SortingLayerID: 1225285683
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f5f96e37c4a5c2742a15396307f45c2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 86cff8e4780989a46817f2cd496d5057, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1345,7 +1344,7 @@ SpriteRenderer:
   m_SortingLayerID: -1727839177
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 08c783c1553c80543a29bd0e6c85c785, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70da4c116645de94499351de74e28d18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

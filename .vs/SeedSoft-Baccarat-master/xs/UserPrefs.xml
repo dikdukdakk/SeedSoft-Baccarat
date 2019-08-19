@@ -1,16 +1,16 @@
 ﻿<Properties StartupConfiguration="{6E8AF2ED-D118-0DC0-71DE-F187C6BBEA1F}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ChatManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/GameManager/PKManager.cs">
     <Files>
-      <File FileName="Assets/Script/NetworkManager.cs" Line="186" Column="29" />
-      <File FileName="Assets/Script/PlayerSetup.cs" Line="64" Column="13" />
-      <File FileName="Assets/Script/PKManager.cs" Line="175" Column="35" />
-      <File FileName="Assets/Script/ShuffleDeck.cs" Line="26" Column="1" />
-      <File FileName="Assets/ChatManager.cs" Line="53" Column="1" />
+      <File FileName="Assets/Script/GameManager/PKManager.cs" Line="141" Column="12" />
+      <File FileName="Assets/Script/GameManager/ShuffleDeck.cs" Line="27" Column="9" />
+      <File FileName="Assets/Script/Player/PlayerSetup.cs" Line="32" Column="89" />
+      <File FileName="Assets/Script/GameManager/NetworkManager.cs" Line="48" Column="6" />
+      <File FileName="Assets/Script/GameManager/MultiplayPKGame.cs" Line="4" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="826197fc-83dd-4044-bb27-0309e47dd20c" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a97fb36b-ad86-4f57-a43d-ac3f23c6b00e" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
