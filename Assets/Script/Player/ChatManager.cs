@@ -63,7 +63,7 @@ public class ChatManager : MonoBehaviourPun,IPunObservable
         }
     }
 
-    public void OnSendChatClicked(string data)
+    public void OnSendChatClicked()
     {
         photonView.RPC("SendMassage", RpcTarget.AllBuffered, chatInput.text);
         bubbleSpeech.SetActive(true);

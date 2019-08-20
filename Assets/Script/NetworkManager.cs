@@ -33,8 +33,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public GameObject ListRoom;
     public GameObject roomListEntryPrefab;
     public GameObject roomListParent;
-    public GameObject playerListPrefab;
-    public List<GameObject> playerSits;
 
     private Dictionary<string, RoomInfo> cachedRoomList;
     private Dictionary<string, GameObject> roomListGameObject;
