@@ -1,5 +1,5 @@
 ﻿
 public class MultiplayPKGame
 {
-    public const string GAME_READY = "isGameReady";
+    public const string PLAYER_GREATERONE = "isPlayerJoinRoom";
 }

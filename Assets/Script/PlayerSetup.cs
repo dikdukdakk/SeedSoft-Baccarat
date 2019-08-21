@@ -9,73 +9,52 @@ public class PlayerSetup : MonoBehaviourPun,IPunObservable
     [Header("UI References")]
     public TextMesh PlayerNameText;
     public SpriteRenderer PlayerImage;
+    public GameObject btStartGame;
+    public SpriteRenderer isJoinRoom;
 
     [Header("Pokdeng GameObject")]
-    public int rollCard;
     public GameObject[] FrontCard;    //card player
     public GameObject[] BackgroundCard;  //background card
     public PhotonView photonView;
 
+    private bool isPlayerJoinRoom = true;
+    //public int firstCard,secondCard,thirdCard;
 
-    public int firstCard,secondCard,thirdCard;
 
-   
     #region Unity Method
-  
     private void Start()
     {
-        SetPlayerUI();
-    }
-
-    private void Update()
-    {
-        //GetCard(PKManager.toStatic.isGameStatus);
-
-        photonView.RPC("GetCard", RpcTarget.AllBuffered,PKManager.toStatic.isGameStatus);
+       // SetPlayerUI();
     }
     #endregion
 
-    #region Private Method
-    [PunRPC]
-    void GetCard(bool gameStatus)
+    #region Public Method   
+    public void Initialize(int playerID, string playerName)
     {
-        if (!gameStatus)
-            return;
+        PlayerNameText.text = playerName;
 
-        if(photonView.IsMine)
-        {
-            if (PhotonNetwork.LocalPlayer.IsMasterClient)
-            {
-                //firstCard = ShuffleDeck.toStatic.firstCard[photonView.Owner.ActorNumber +8];
-                //secondCard = ShuffleDeck.toStatic.secondCard[photonView.Owner.ActorNumber +8];
-                //Debug.Log("(Host) firstCard = " + firstCard + " secondCard = " + secondCard);
+        SetPlayerJoinRoom(isPlayerJoinRoom);
+        ExitGames.Client.Photon.Hashtable initialProps = new ExitGames.Client.Photon.Hashtable() { { MultiplayPKGame.PLAYER_GREATERONE, isPlayerJoinRoom} };
+        PhotonNetwork.LocalPlayer.SetCustomProperties(initialProps);
 
-                BackgroundCard[0].SetActive(true);
-                BackgroundCard[1].SetActive(true);
-            }
-        }
-        else
-        {
-            //firstCard = ShuffleDeck.toStatic.firstCard[photonView.Owner.ActorNumber  -2];
-            //secondCard = ShuffleDeck.toStatic.secondCard[photonView.Owner.ActorNumber -2];
-            //Debug.Log("(Player" + PKManager.toStatic.countPlayer + ") firstCard = " + firstCard + " secondCard = " + secondCard);
+        //SetPlayerJoinRoom(isPlayerJoinRoom);
+        //ExitGames.Client.Photon.Hashtable newProps = new ExitGames.Client.Photon.Hashtable() { { MultiplayPKGame.PLAYER_GREATERONE, isPlayerJoinRoom } };
+        //PhotonNetwork.LocalPlayer.SetCustomProperties(newProps);
 
-            BackgroundCard[0].SetActive(true);
-            BackgroundCard[1].SetActive(true);
-        }
+
+    }
+
+    public void SetPlayerJoinRoom(bool playerJoin)
+    {
+        isJoinRoom.enabled = playerJoin;
+    }
     
-
-    }
-
-    void SetPlayerUI()
-    {
-        if (PlayerNameText != null)
-            PlayerNameText.text = photonView.Owner.NickName;
-    }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         
     }
+
+    
     #endregion
 }

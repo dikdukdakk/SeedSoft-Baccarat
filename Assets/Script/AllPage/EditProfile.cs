@@ -47,4 +47,6 @@ public class EditProfile : MonoBehaviour
         playerImage.sprite = bt.GetComponent<Image>().sprite;
         SelectImagePanel.SetActive(false);
     }
+
+    
 }
